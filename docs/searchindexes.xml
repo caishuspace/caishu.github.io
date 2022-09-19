@@ -3,7 +3,7 @@
   
   <entry>
     <title>建站一些命令！</title>
-    <url>/post/pre/hello-world.html</url>
+    <url>http://upccaishu.top/post/pre/hello-world.html</url>
     <categories><category>hugo说明</category>
     </categories>
     <tags>
@@ -18,7 +18,7 @@ Hugo是现今世界上最快的网站建设框架，也是最流行的开源静
   
   <entry>
     <title>自定义短语示例</title>
-    <url>/post/pre/shortcodes.html</url>
+    <url>http://upccaishu.top/post/pre/shortcodes.html</url>
     <categories><category>hugo说明</category>
     </categories>
     <tags>
@@ -37,7 +37,7 @@ Default Header without icon Welcome to Hugo NexT!Default Header Welcome to Hugo
   
   <entry>
     <title>关于 我</title>
-    <url>/about.html</url>
+    <url>http://upccaishu.top/about.html</url>
     <categories>
     </categories>
     <tags>
@@ -48,7 +48,7 @@ Default Header without icon Welcome to Hugo NexT!Default Header Welcome to Hugo
   
   <entry>
     <title>Hugo 内置的 Chroma 语法高亮</title>
-    <url>/post/pre/syntax-highlighting.html</url>
+    <url>http://upccaishu.top/post/pre/syntax-highlighting.html</url>
     <categories><category>hugo说明</category>
     </categories>
     <tags>
@@ -62,7 +62,7 @@ Default Header without icon Welcome to Hugo NexT!Default Header Welcome to Hugo
   
   <entry>
     <title>支持 Emoji 表情</title>
-    <url>/post/pre/emoji-support.html</url>
+    <url>http://upccaishu.top/post/pre/emoji-support.html</url>
     <categories><category>hugo说明</category>
     </categories>
     <tags>
@@ -81,7 +81,7 @@ emojify方法可以直接在模板中调用, 或者使用行内 Shortcodes.
   
   <entry>
     <title>Markdown 语法支持</title>
-    <url>/post/pre/markdown-syntax.html</url>
+    <url>http://upccaishu.top/post/pre/markdown-syntax.html</url>
     <categories><category>hugo说明</category>
     </categories>
     <tags>
@@ -112,7 +112,7 @@ Xn + Yn = Zn
   
   <entry>
     <title>站点示例</title>
-    <url>/flinks.html</url>
+    <url>http://upccaishu.top/flinks.html</url>
     <categories>
     </categories>
     <tags>

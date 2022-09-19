@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>菜树的Blog</title>
-    <link>/archives/</link>
+    <link>http://upccaishu.top/archives/</link>
     <description>Recent content on 菜树的Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 26 Jul 2022 21:46:25 +0800</lastBuildDate><atom:link href="/archives/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Jul 2022 21:46:25 +0800</lastBuildDate><atom:link href="http://upccaishu.top/archives/rss.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

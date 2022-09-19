@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 菜树的Blog</title>
-    <link>/tags/</link>
+    <link>http://upccaishu.top/tags/</link>
     <description>Recent content in Tags on 菜树的Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 06 Aug 2022 14:41:50 +0800</lastBuildDate><atom:link href="/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 14:41:50 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>短代码语法</title>
-      <link>/tags/%E7%9F%AD%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95/</link>
+      <link>http://upccaishu.top/tags/%E7%9F%AD%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 06 Aug 2022 14:41:50 +0800</pubDate>
       
-      <guid>/tags/%E7%9F%AD%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://upccaishu.top/tags/%E7%9F%AD%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>语法高亮</title>
-      <link>/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/</link>
+      <link>http://upccaishu.top/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/</link>
       <pubDate>Tue, 07 Jun 2022 19:09:52 +0800</pubDate>
       
-      <guid>/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/</guid>
+      <guid>http://upccaishu.top/tags/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emoji</title>
-      <link>/tags/emoji/</link>
+      <link>http://upccaishu.top/tags/emoji/</link>
       <pubDate>Sat, 04 Jun 2022 19:46:45 +0800</pubDate>
       
-      <guid>/tags/emoji/</guid>
+      <guid>http://upccaishu.top/tags/emoji/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Markdown 语法</title>
-      <link>/tags/markdown-%E8%AF%AD%E6%B3%95/</link>
+      <link>http://upccaishu.top/tags/markdown-%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Fri, 03 Jun 2022 11:52:18 +0800</pubDate>
       
-      <guid>/tags/markdown-%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://upccaishu.top/tags/markdown-%E8%AF%AD%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>/tags/hugo/</link>
+      <link>http://upccaishu.top/tags/hugo/</link>
       <pubDate>Thu, 02 Jun 2022 11:52:03 +0800</pubDate>
       
-      <guid>/tags/hugo/</guid>
+      <guid>http://upccaishu.top/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>开始</title>
-      <link>/tags/%E5%BC%80%E5%A7%8B/</link>
+      <link>http://upccaishu.top/tags/%E5%BC%80%E5%A7%8B/</link>
       <pubDate>Thu, 02 Jun 2022 11:52:03 +0800</pubDate>
       
-      <guid>/tags/%E5%BC%80%E5%A7%8B/</guid>
+      <guid>http://upccaishu.top/tags/%E5%BC%80%E5%A7%8B/</guid>
       <description></description>
     </item>
     

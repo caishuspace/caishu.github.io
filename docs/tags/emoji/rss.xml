@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>emoji on 菜树的Blog</title>
-    <link>/tags/emoji/</link>
+    <link>http://upccaishu.top/tags/emoji/</link>
     <description>Recent content in emoji on 菜树的Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 04 Jun 2022 19:46:45 +0800</lastBuildDate><atom:link href="/tags/emoji/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jun 2022 19:46:45 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/emoji/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>支持 Emoji 表情</title>
-      <link>/post/pre/emoji-support.html</link>
+      <link>http://upccaishu.top/post/pre/emoji-support.html</link>
       <pubDate>Sat, 04 Jun 2022 19:46:45 +0800</pubDate>
       
-      <guid>/post/pre/emoji-support.html</guid>
+      <guid>http://upccaishu.top/post/pre/emoji-support.html</guid>
       <description>&lt;p&gt;Emoji 可以通过多种方式在 Hugo 项目中启用。&lt;/p&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://gohugo.io/functions/emojify/&#34; title=&#34;&amp;lt;code&amp;gt;emojify&amp;lt;/code&amp;gt;&#34; rel=&#34;noopener external nofollow noreferrer&#34; target=&#34;_blank&#34; class=&#34; exturl&#34;&gt;

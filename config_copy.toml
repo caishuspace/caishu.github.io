@@ -1,0 +1,4 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = '菜树的blog'
+theme = 'hugo-vitae'

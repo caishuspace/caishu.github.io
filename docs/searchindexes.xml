@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<search>
+  
+  <entry>
+    <title>建站一些命令！</title>
+    <url>/post/pre/hello-world.html</url>
+    <categories><category>hugo说明</category>
+    </categories>
+    <tags>
+      <tag>Hugo</tag>
+      <tag>开始</tag>
+    </tags>
+    <content type="html"><![CDATA[ “使用 weight 关键字置顶文章。”
+Hugo是现今世界上最快的网站建设框架，也是最流行的开源静态站点生成器之一。 凭借其惊人的速度和灵活性，Hugo 让建设网站再次变得有趣起来。
+快速开始 发表新文章 1 $ hugo server --buildDrafts 更多信息：内容格式启动服务以实时预览的方式 1 $ hugo server 启动服务 1 $ hugo server 更多信息：Hugo 服务命令行生成静态文件 为了部署到线上，需要将 Markdown 文件打包成 HTML 文件。打包命令如下，hugo-theme-next 是主题名：(命令必须在网站的根目录下执行) 1 $ hugo -t hugo-theme-next 1 $ hugo --theme=hyde hugo-theme-next 更多信息：Hugo 建站部署到服务器 $ hugo deploy 更多信息：Hugo 发布祝你好运，相信你会喜欢上 Hugo 建站的旅程！
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>自定义短语示例</title>
+    <url>/post/pre/shortcodes.html</url>
+    <categories><category>hugo说明</category>
+    </categories>
+    <tags>
+      <tag>短代码语法</tag>
+    </tags>
+    <content type="html"><![CDATA[虽然 Markdown 语法已经非常丰富能够满足我们写文章的绝大部分需求，但是为更好的对文章内容进行更友好的排版，为引设计一套自定义的短语，便于在使用时能够快速引用。
+块引用 在引用一些经典名言名句时，可以采用此短语，语法参考如下：
+1 2 3 4 {{&lt; quote &gt;}} ### block quote 写下你想表达的话语！ {{&lt; /quote &gt;}} 实际效果：
+希望是无所谓有，无所谓无的，这正如地上的路。
+其实地上本没有路，走的人多了，也便成了路。
+鲁迅
+信息块 支持 default，info，success，warning，danger 等五种不同效果的展示，语法参考如下：
+1 2 3 4 {{&lt; note [class] [no-icon] &gt;}} 书写表达的信息 支持 Markdown 语法 {{&lt; /note &gt;}} 实际效果：
+Default Header without icon Welcome to Hugo NexT!Default Header Welcome to Hugo NexT!Info Header Welcome to Hugo NexT!Success Header Welcome to Hugo NexT!Warning Header Welcome to Hugo NexT!Danger Header Welcome to Hugo NexT!]]></content>
+  </entry>
+  
+  <entry>
+    <title>关于 我</title>
+    <url>/about.html</url>
+    <categories>
+    </categories>
+    <tags>
+    </tags>
+    <content type="html"><![CDATA[一名在校生，时常分享Coding及炼丹生活。
+我们的愿景 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Hugo 内置的 Chroma 语法高亮</title>
+    <url>/post/pre/syntax-highlighting.html</url>
+    <categories><category>hugo说明</category>
+    </categories>
+    <tags>
+      <tag>语法高亮</tag>
+    </tags>
+    <content type="html"><![CDATA[Hugo 通过 Chroma 提供非常快速的语法高亮显示，现 Hugo 中使用 Chroma 作为代码块高亮支持，它内置在 Go 语言当中，速度是真的非常、非常快，而且最为重要的是它也兼容之前我们使用的 Pygments 方式。
+以下通过 Hugo 内置短代码 highlight 和 Markdown 代码块方式分别验证不同语言的代码块渲染效果并能正确高亮显示，有关优化语法突出显示的更多信息，请参阅 Hugo 文档。
+编程语言 GO 199 200 201 202 203 204 205 206 207 208 func GetTitleFunc(style string) func(s string) string { switch strings.ToLower(style) { case &#34;go&#34;: return strings.Title case &#34;chicago&#34;: return transform.NewTitleConverter(transform.ChicagoStyle) default: return transform.NewTitleConverter(transform.APStyle) } } Java 1 2 3 4 5 6 7 8 9 10 11 12 import javax.swing.JFrame; //Importing class JFrame import javax.swing.JLabel; //Importing class JLabel public class HelloWorld { public static void main(String[] args) { JFrame frame = new JFrame(); //Creating frame frame.setTitle(&#34;Hi!&#34;); //Setting title frame frame.add(new JLabel(&#34;Hello, world!&#34;));//Adding text to frame frame.pack(); //Setting size to smallest frame.setLocationRelativeTo(null); //Centering frame frame.setVisible(true); //Showing frame } } Python 1 print &#34;Hello, world!&#34; Git 对比 1 2 3 4 5 6 7 8 9 10 *** /path/to/original &#39;&#39;timestamp&#39;&#39; --- /path/to/new &#39;&#39;timestamp&#39;&#39; *************** *** 1 **** ! This is a line. --- 1 --- ! This is a replacement line. It is important to spell -removed line +new line *** /path/to/original &#39;&#39;timestamp&#39;&#39; --- /path/to/new &#39;&#39;timestamp&#39;&#39; *************** *** 1 **** ! This is a line. --- 1 --- ! This is a replacement line. It is important to spell -removed line +new line 文件 Make 文件 CC=gcc CFLAGS=-I. hellomake: hellomake.o hellofunc.o $(CC) -o hellomake hellomake.o hellofunc.o -I. Markdown 文档 1 2 3 **bold** *italics* [link](www.example.com) 数据内容 JSON 数据 1 2 3 {&#34;employees&#34;:[ {&#34;firstName&#34;:&#34;John&#34;, &#34;lastName&#34;:&#34;Doe&#34;}, ]} XML 内容 1 2 3 4 5 &lt;employees&gt; &lt;employee&gt; &lt;firstName&gt;John&lt;/firstName&gt; &lt;lastName&gt;Doe&lt;/lastName&gt; &lt;/employee&gt; &lt;/employees&gt; SQL 查询 1 2 3 4 SELECT column_name,column_name FROM Table WHERE column_name = &#34;condition&#34; 除以上列举的代码高亮显示外，还支持诸如：C 语言、C++、HTML、CSS、Shell脚本等各主流的代码语言高亮显示，可自行测试效果。
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>支持 Emoji 表情</title>
+    <url>/post/pre/emoji-support.html</url>
+    <categories><category>hugo说明</category>
+    </categories>
+    <tags>
+      <tag>emoji</tag>
+    </tags>
+    <content type="html"><![CDATA[Emoji 可以通过多种方式在 Hugo 项目中启用。
+emojify方法可以直接在模板中调用, 或者使用行内 Shortcodes.
+要全局使用 emoji, 需要在你的网站配置中设置 enableEmoji 为 true， 然后你就可以直接在文章中输入 emoji 的代码。
+它们以冒号开头和结尾，并且包含 emoji 的 代码：
+1 2 3 去露营啦! {:}tent: 很快就回来. 真开心! {:}joy: 呈现的输出效果如下:
+去露营啦! ⛺ 很快就回来。
+真开心! 😂
+以下符号清单是 emoji 代码的非常有用的参考。
+表情与情感 笑脸表情 图标 代码 图标 代码 😀 grinning 😃 smiley 😄 smile 😁 grin 😆 laughing satisfied 😅 sweat_smile 🤣 rofl 😂 joy 🙂 slightly_smiling_face 🙃 upside_down_face 😉 wink 😊 blush 😇 innocent 爱意表情 图标 代码 图标 代码 😍 heart_eyes 😘 kissing_heart 😗 kissing ☺️ relaxed 😚 kissing_closed_eyes 😙 kissing_smiling_eyes 吐舌头表情 图标 代码 图标 代码 😋 yum 😛 stuck_out_tongue 😜 stuck_out_tongue_winking_eye 😝 stuck_out_tongue_closed_eyes 🤑 money_mouth_face 国家和地区旗帜 图标 代码 图标 代码 🇦🇩 andorra 🇦🇪 united_arab_emirates 🇦🇫 afghanistan 🇦🇬 antigua_barbuda 🇦🇮 anguilla 🇦🇱 albania 🇦🇲 armenia 🇦🇴 angola 🇦🇶 antarctica 🇦🇷 argentina 🇦🇸 american_samoa 🇦🇹 austria 🇦🇺 australia 🇦🇼 aruba 🇦🇽 aland_islands 🇦🇿 azerbaijan 🇧🇦 bosnia_herzegovina 🇧🇧 barbados 🇧🇩 bangladesh 🇧🇪 belgium 🇧🇫 burkina_faso 🇧🇬 bulgaria 🇧🇭 bahrain 🇧🇮 burundi 🇧🇯 benin 🇧🇱 st_barthelemy 🇧🇲 bermuda 🇧🇳 brunei 🇧🇴 bolivia 🇧🇶 caribbean_netherlands 🇧🇷 brazil 🇧🇸 bahamas 🇧🇹 bhutan 🇧🇼 botswana 🇧🇾 belarus 🇧🇿 belize 🇨🇦 canada 🇨🇨 cocos_islands 🇨🇩 congo_kinshasa 🇨🇫 central_african_republic 🇨🇬 congo_brazzaville 🇨🇭 switzerland 🇨🇮 cote_divoire 🇨🇰 cook_islands 🇨🇱 chile 🇨🇲 cameroon 🇨🇳 cn 🇨🇴 colombia 🇨🇷 costa_rica 🇨🇺 cuba 🇨🇻 cape_verde 🇨🇼 curacao 🇨🇽 christmas_island 🇨🇾 cyprus 🇨🇿 czech_republic 🇩🇪 de 🇩🇯 djibouti 🇩🇰 denmark 🇩🇲 dominica 🇩🇴 dominican_republic 🇩🇿 algeria 🇪🇨 ecuador 🇪🇪 estonia 🇪🇬 egypt 🇪🇭 western_sahara 🇪🇷 eritrea 🇪🇸 es 🇪🇹 ethiopia 🇪🇺 eu european_union 🇫🇮 finland 🇫🇯 fiji 🇫🇰 falkland_islands 🇫🇲 micronesia 🇫🇴 faroe_islands 🇫🇷 fr 🇬🇦 gabon 🇬🇧 gb uk 🇬🇩 grenada 🇬🇪 georgia 🇬🇫 french_guiana 🇬🇬 guernsey 🇬🇭 ghana 🇬🇮 gibraltar 🇬🇱 greenland 🇬🇲 gambia 🇬🇳 guinea 🇬🇵 guadeloupe 🇬🇶 equatorial_guinea 🇬🇷 greece 🇬🇸 south_georgia_south_sandwich_islands 🇬🇹 guatemala 🇬🇺 guam 🇬🇼 guinea_bissau 🇬🇾 guyana 🇭🇰 hong_kong 🇭🇳 honduras 🇭🇷 croatia 🇭🇹 haiti 🇭🇺 hungary 🇮🇨 canary_islands 🇮🇩 indonesia 🇮🇪 ireland 🇮🇱 israel 🇮🇲 isle_of_man 🇮🇳 india 🇮🇴 british_indian_ocean_territory 🇮🇶 iraq 🇮🇷 iran 🇮🇸 iceland 🇮🇹 it 🇯🇪 jersey 🇯🇲 jamaica 🇯🇴 jordan 🇯🇵 jp 🇰🇪 kenya 🇰🇬 kyrgyzstan 🇰🇭 cambodia 🇰🇮 kiribati 🇰🇲 comoros 🇰🇳 st_kitts_nevis 🇰🇵 north_korea 🇰🇷 kr 🇰🇼 kuwait 🇰🇾 cayman_islands 🇰🇿 kazakhstan 🇱🇦 laos 🇱🇧 lebanon 🇱🇨 st_lucia 🇱🇮 liechtenstein 🇱🇰 sri_lanka 🇱🇷 liberia 🇱🇸 lesotho 🇱🇹 lithuania 🇱🇺 luxembourg 🇱🇻 latvia 🇱🇾 libya 🇲🇦 morocco 🇲🇨 monaco 🇲🇩 moldova 🇲🇪 montenegro 🇲🇬 madagascar 🇲🇭 marshall_islands 🇲🇰 macedonia 🇲🇱 mali 🇲🇲 myanmar 🇲🇳 mongolia 🇲🇴 macau 🇲🇵 northern_mariana_islands 🇲🇶 martinique 🇲🇷 mauritania 🇲🇸 montserrat 🇲🇹 malta 🇲🇺 mauritius 🇲🇻 maldives 🇲🇼 malawi 🇲🇽 mexico 🇲🇾 malaysia 🇲🇿 mozambique 🇳🇦 namibia 🇳🇨 new_caledonia 🇳🇪 niger 🇳🇫 norfolk_island 🇳🇬 nigeria 🇳🇮 nicaragua 🇳🇱 netherlands 🇳🇴 norway 🇳🇵 nepal 🇳🇷 nauru 🇳🇺 niue 🇳🇿 new_zealand 🇴🇲 oman 🇵🇦 panama 🇵🇪 peru 🇵🇫 french_polynesia 🇵🇬 papua_new_guinea 🇵🇭 philippines 🇵🇰 pakistan 🇵🇱 poland 🇵🇲 st_pierre_miquelon 🇵🇳 pitcairn_islands 🇵🇷 puerto_rico 🇵🇸 palestinian_territories 🇵🇹 portugal 🇵🇼 palau 🇵🇾 paraguay 🇶🇦 qatar 🇷🇪 reunion 🇷🇴 romania 🇷🇸 serbia 🇷🇺 ru 🇷🇼 rwanda 🇸🇦 saudi_arabia 🇸🇧 solomon_islands 🇸🇨 seychelles 🇸🇩 sudan 🇸🇪 sweden 🇸🇬 singapore 🇸🇭 st_helena 🇸🇮 slovenia 🇸🇰 slovakia 🇸🇱 sierra_leone 🇸🇲 san_marino 🇸🇳 senegal 🇸🇴 somalia 🇸🇷 suriname 🇸🇸 south_sudan 🇸🇹 sao_tome_principe 🇸🇻 el_salvador 🇸🇽 sint_maarten 🇸🇾 syria 🇸🇿 swaziland 🇹🇨 turks_caicos_islands 🇹🇩 chad 🇹🇫 french_southern_territories 🇹🇬 togo 🇹🇭 thailand 🇹🇯 tajikistan 🇹🇰 tokelau 🇹🇱 timor_leste 🇹🇲 turkmenistan 🇹🇳 tunisia 🇹🇴 tonga 🇹🇷 tr 🇹🇹 trinidad_tobago 🇹🇻 tuvalu 🇹🇼 taiwan 🇹🇿 tanzania 🇺🇦 ukraine 🇺🇬 uganda 🇺🇸 us 🇺🇾 uruguay 🇺🇿 uzbekistan 🇻🇦 vatican_city 🇻🇨 st_vincent_grenadines 🇻🇪 venezuela 🇻🇬 british_virgin_islands 🇻🇮 us_virgin_islands 🇻🇳 vietnam 🇻🇺 vanuatu 🇼🇫 wallis_futuna 🇼🇸 samoa 🇽🇰 kosovo 🇾🇪 yemen 🇾🇹 mayotte 🇿🇦 south_africa 🇿🇲 zambia 🇿🇼 zimbabwe ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Markdown 语法支持</title>
+    <url>/post/pre/markdown-syntax.html</url>
+    <categories><category>hugo说明</category>
+    </categories>
+    <tags>
+      <tag>Markdown 语法</tag>
+    </tags>
+    <content type="html"><![CDATA[仅以此篇文章来测试下在 NexT 主题中在通过 Hugo 引擎来建站时，是否支持 Markdown 文件内容中所写的各种语法，并展示下实际的效果。
+标题样式 让我们从所有可能的标题开始，在 HTML 中 &lt;h1&gt;-&lt;h6&gt;元素分别表示六个不同级别的标题样式，其中 &lt;h1&gt; 为最大标题，&lt;h6&gt;为最小标题，效果如下：
+标题 1 标题 2 标题 3 标题 4 标题 5 标题 6 段落格式 根据W3C 定义的HTML5 规范，HTML 文档由元素和文本组成。每个元素的组成都由一个开始标记表示，例如： &lt;body&gt; ，和结束标记表示，例如： &lt;/body&gt; 。（某些开始标记和结束标记在某些情况下可以省略，并由其他标记暗示。） 元素可以具有属性，这些属性控制元素的工作方式。例如：超链接是使用 a 元素及其 href 属性形成的。
+Markdown 语法 1 ![图像说明](图像地址) HTML IMG 标签 1 &lt;img src=&#34;图像地址&#34; width=&#34;宽度&#34; height=&#34;高度&#34; /&gt; SVG 格式 1 &lt;svg&gt;xxxxxx&lt;/svg&gt; 列表类型 有序列表 第一个元素 第二个元素 第三个元素 无序列表 列表元素 另一个元素 和其它元素 嵌套列表 借助 HTML 的 ul 元素来实现。
+第一项第二项第二项第一个子项目第二项第二个子项目第二项第二分项第一分项第二项第二分项第二分项第二项第二分项第三分项第二项第三个子项目第二项第三分项第一分项第二项第三分项第二分项第二项第三分项第三分项第三项自定义列表 通过 HTML 的 dl 元素还支持自定义列表（表格列表）。
+Hugo 目录结构assetsconfig.tomlcontentdatathemestaticHugo 模板基础模板列表模板单页模板块引用 blockquote 元素表示从另一个源引用的内容，可以选择引用必须在 footer 或 cite 元素中，也可以选择使用注释和缩写等行内更改。
+引用文本 这一行也是同样的引用 同样你也在 blockquote 中使用 Markdown 语法书写
+带有引文的 Blockquote 元素效果。
+我的目标不是赚大钱,是为了制造好的电脑。当我意识到我可以永远当工程师时，我才创办了这家公司。
+— 史蒂夫·沃兹尼亚克根据 Mozilla 的网站记录，Firefox 1.0 于 2004 年发布，并取得了巨大成功。
+表格 表格并不算是 Markdown 的核心要素，但 Hugo 同样支持它。
+ID 创建者 模型 年份 1 Honda Accord 2009 2 Toyota Camry 2012 3 Hyundai Elantra 2010 可以使用 : （英文格式冒号）来对表格内容进行对齐。
+表格 可以是 很酷 左对齐 居中 右对齐 左对齐 居中 右对齐 左对齐 居中 右对齐 同样也可以在表格中使用 Markdown 语法。
+表格 中 使用 Markdown 语法 斜体 粗体 中划线 代码块 Code 1 2 3 4 5 6 7 8 9 10 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;Example HTML5 Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;p&gt;Test&lt;/p&gt; &lt;/body&gt; &lt;/html&gt; 1 2 3 4 5 6 7 8 9 10 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;Example HTML5 Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;p&gt;Test&lt;/p&gt; &lt;/body&gt; &lt;/html&gt; 其它元素： abbr、sub、sup、kbd等等 GIF 是位图图像格式。
+H2O
+C6H12O6
+Xn + Yn = Zn
+按X获胜。或按CTRL+ALT+F显示 FPS 计数器。
+比特作为信息论中的信息单位，也被称为 shannon ，以信息论领域的创始人 Claude shannon 的名字命名。
+参考：
+来自 Mainroad 主题的 Basic Elements内容 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>站点示例</title>
+    <url>/flinks.html</url>
+    <categories>
+    </categories>
+    <tags>
+    </tags>
+    <content type="html"><![CDATA[如想要交换友情链接，请在评论区留下你的站点信息，格式参考如下：
+名称： NexT 主题 说明： 保持简单的易用性和强大的功能。 站标： https://hugo-next.eu.org/imgs/hugo_next_avatar.png网址： https://hugo-next.eu.org]]></content>
+  </entry>
+  
+</search>

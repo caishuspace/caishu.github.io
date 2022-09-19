@@ -46,10 +46,15 @@ $ hugo server
 更多信息：[Hugo 服务命令行](https://gohugo.io/commands/hugo_server/)
 
 ### 生成静态文件
+- 为了部署到线上，需要将 Markdown 文件打包成 HTML 文件。打包命令如下，hugo-theme-next 是主题名：(命令必须在网站的根目录下执行)
 
 ```shell
-$ hugo
+$ hugo -t hugo-theme-next
 ```
+```shell
+$  hugo --theme=hyde hugo-theme-next
+```
+
 
 更多信息：[Hugo 建站](https://gohugo.io/commands/hugo/)
 

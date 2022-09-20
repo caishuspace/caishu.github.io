@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深度学习入门 on 菜树的Blog</title>
+    <link>http://upccaishu.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/</link>
+    <description>Recent content in 深度学习入门 on 菜树的Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 04 Dec 2020 16:14:44 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>吴恩达深度学习课程（计算图和pytorch动态计算梯度）</title>
+      <link>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9B%BE%E5%92%8Cpytorch%E5%8A%A8%E6%80%81%E8%AE%A1%E7%AE%97%E6%A2%AF%E5%BA%A6/</link>
+      <pubDate>Fri, 04 Dec 2020 16:14:44 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9B%BE%E5%92%8Cpytorch%E5%8A%A8%E6%80%81%E8%AE%A1%E7%AE%97%E6%A2%AF%E5%BA%A6/</guid>
+      <description>&lt;p&gt;吴恩达深度学习课程（计算图和pytorch动态计算梯度）
+计算图以及pytoch动态计算图代码构建&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>吴恩达深度学习课程 逻辑回归中的梯度下降和代价函数</title>
+      <link>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%92%8C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 30 Nov 2020 15:18:18 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%92%8C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</guid>
+      <description>&lt;p&gt;吴恩达深度学习课程-逻辑回归中的梯度下降和代价函数&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>吴恩达深度学习课程 逻辑回归部分</title>
+      <link>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E9%83%A8%E5%88%86/</link>
+      <pubDate>Mon, 30 Nov 2020 15:07:06 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E9%83%A8%E5%88%86/</guid>
+      <description>&lt;p&gt;吴恩达深度学习课程小记&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,27 +6,232 @@
     <description>Recent content in Posts on 菜树的Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 06 Aug 2022 14:41:50 +0800</lastBuildDate><atom:link href="http://upccaishu.top/post/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Aug 2021 18:53:16 +0800</lastBuildDate><atom:link href="http://upccaishu.top/post/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>建站一些命令！</title>
-      <link>http://upccaishu.top/post/pre/hello-world.html</link>
-      <pubDate>Thu, 02 Jun 2022 11:52:03 +0800</pubDate>
+      <title>Eccube4（插件开发三）</title>
+      <link>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</link>
+      <pubDate>Wed, 11 Aug 2021 18:53:16 +0800</pubDate>
       
-      <guid>http://upccaishu.top/post/pre/hello-world.html</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;“使用 &lt;code&gt;weight&lt;/code&gt; 关键字置顶文章。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;
-&lt;a href=&#34;https://gohugo.io/&#34; title=&#34;Hugo&#34; rel=&#34;noopener external nofollow noreferrer&#34; target=&#34;_blank&#34; class=&#34; exturl&#34;&gt;
-    Hugo
-    &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;
-&lt;/a&gt; 是现今世界上最快的网站建设框架，也是最流行的开源静态站点生成器之一。 凭借其惊人的速度和灵活性，Hugo 让建设网站再次变得有趣起来。&lt;/p&gt;</description>
+      <guid>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</guid>
+      <description>&lt;p&gt;Eccube4（插件开发三）
+CSV文件DOM头引起的编码问题。
+CSV直接用Excel打开，乱码问题解决。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eccube4（插件开发二）</title>
+      <link>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%8C/</link>
+      <pubDate>Sun, 08 Aug 2021 18:49:24 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%8C/</guid>
+      <description>&lt;p&gt;Eccube4（插件开发二）&lt;/p&gt;
+&lt;h2 id=&#34;多级折叠菜单&#34;&gt;多级折叠菜单&lt;/h2&gt;
+&lt;p&gt;－这更偏向于经验贴，而不是技术贴。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eccube4（插件开发一）</title>
+      <link>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%80/</link>
+      <pubDate>Thu, 29 Jul 2021 18:40:52 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%80/</guid>
+      <description>&lt;p&gt;Eccube4（插件开发一）&lt;/p&gt;
+&lt;p&gt;因为本人也是刚开始接触这个东西，有何不对之处还望批评指正。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Win10&#43;VScode&#43;phpStudy&#43;Xdebug进行PHP开发</title>
+      <link>http://upccaishu.top/post/skills/win10&#43;vscode&#43;phpstudy&#43;xdebug%E8%BF%9B%E8%A1%8Cphp%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Mon, 26 Jul 2021 18:32:47 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/win10&#43;vscode&#43;phpstudy&#43;xdebug%E8%BF%9B%E8%A1%8Cphp%E5%BC%80%E5%8F%91/</guid>
+      <description>&lt;p&gt;win10+VScode+phpStudy+Xdebug进行PHP开发&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu20.04下修改apache2默认网站路径</title>
+      <link>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sun, 18 Jul 2021 18:28:39 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</guid>
+      <description>&lt;p&gt;Ubuntu20.04下修改apache2默认网站路径&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eccube4.0.3安装过程</title>
+      <link>http://upccaishu.top/post/skills/eccube4.0.3%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Sat, 17 Jul 2021 18:19:09 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/eccube4.0.3%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</guid>
+      <description>&lt;p&gt;eccube4.0.3安装过程&lt;/p&gt;
+&lt;p&gt;由于开发需要，接触eccube的开发，关于eccube的内容不做详细说明，此处只作为开发过程的流程。大体而言，就是安装好PHP环境，服务器环境，以及安装好数据库。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PhpStudy遇见的问题</title>
+      <link>http://upccaishu.top/post/skills/phpstudy%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Jul 2021 18:15:06 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/phpstudy%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;phpStudy遇见的问题&lt;/p&gt;
+&lt;p&gt;由于项目需要学习ec-cube开发，前期使用xampp配置了好半天，分开环境是明明白白的了，但是项目仍然起步不了，后来，转到Ubuntu下进行开发，仍然问题一箩筐。后来，在项目负责人的指导下，使用phpstudy集成工具进行开发，将环境在win下安装成功。于是我考虑使用Ubuntu重新走一遍流程。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>免费GPUColab的使用</title>
+      <link>http://upccaishu.top/post/others/%E5%85%8D%E8%B4%B9gpucolab%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 30 Mar 2021 18:05:36 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/others/%E5%85%8D%E8%B4%B9gpucolab%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;免费GPUColab的使用&lt;/p&gt;
+&lt;p&gt;由于实验需要，所需需要GPU做服务运算。大致搜了一下，国内也有几家可以免费使用的GPU，比如百度的飞浆，Kaggle Kernel等等，但是各有不足。其中百度的GPU只能使用其自己的深度学习框架，不能使用pytorch等第三方深度学习框架。后来使用了谷歌的Colab感觉还不错。- 由于众所周知的原因，访问colab需要科学上网，所以，如果没有这个途径的，可以直接略过此文章，选用别的免费GPU。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>配置nginx服务器小结</title>
+      <link>http://upccaishu.top/post/skills/%E9%85%8D%E7%BD%AEnginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Mon, 29 Mar 2021 17:58:51 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/%E9%85%8D%E7%BD%AEnginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B0%8F%E7%BB%93/</guid>
+      <description>&lt;p&gt;配置nginx服务器小结&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客评论区 Utterances插件</title>
+      <link>http://upccaishu.top/post/solved/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA-utterances%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Tue, 23 Feb 2021 17:49:50 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA-utterances%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;p&gt;博客评论区-utterances插件&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>蚂蚁or蜜蜂（迁移卷积神经网络）</title>
+      <link>http://upccaishu.top/post/algorithm/%E8%9A%82%E8%9A%81or%E8%9C%9C%E8%9C%82%E8%BF%81%E7%A7%BB%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Fri, 19 Feb 2021 17:25:19 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E8%9A%82%E8%9A%81or%E8%9C%9C%E8%9C%82%E8%BF%81%E7%A7%BB%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description>&lt;p&gt;蚂蚁or蜜蜂（迁移卷积神经网络）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>手写数字识别器（认识卷积神经网络）</title>
+      <link>http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Thu, 18 Feb 2021 16:59:56 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description>&lt;p&gt;手写数字识别器（认识卷积神经网络）&lt;/p&gt;
+&lt;p&gt;毕设，如同平地起高楼，不打地基，直接盖楼，还是比较麻烦的，基础的东西还是挺重要的，这个小实验，也就是用来练练手而已，跟自己的毕设似乎有一点关联，又似乎没有一点关联。这算是新年第一次开工吧，开学之后，面临着毕设，还有毕业多种事情要做，毕设现在还是比较费脑筋的问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Java后端开发学习之路</title>
+      <link>http://upccaishu.top/post/skills/java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</link>
+      <pubDate>Mon, 08 Feb 2021 16:55:12 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</guid>
+      <description>&lt;p&gt;Java后端开发学习之路&lt;/p&gt;
+&lt;p&gt;参考up主CodeSheep 绘制的Java后端学习之路，供自己参考学习参考up主CodeSheep 绘制的Java后端学习之路，供自己参考学习&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>我的2020</title>
+      <link>http://upccaishu.top/post/others/%E6%88%91%E7%9A%842020/</link>
+      <pubDate>Thu, 24 Dec 2020 16:44:14 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/others/%E6%88%91%E7%9A%842020/</guid>
+      <description>&lt;p&gt;我的2020
+我的2020，期望我的2021~~~&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在服务器上部署Jupyter</title>
+      <link>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</link>
+      <pubDate>Fri, 04 Dec 2020 16:32:00 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</guid>
+      <description>&lt;p&gt;在服务器上部署Jupyter
+服务器安装jupyter
+今天手边没有自己的电脑，但是想要编程，虽然有着很多的在线编程网站，但是在写python代码的时候，一些库没有，很恼火，但是又不能乱搞别人的电脑，就想起了搞一搞jupyter。目前看起来效果还不错。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>吴恩达深度学习课程（计算图和pytorch动态计算梯度）</title>
+      <link>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9B%BE%E5%92%8Cpytorch%E5%8A%A8%E6%80%81%E8%AE%A1%E7%AE%97%E6%A2%AF%E5%BA%A6/</link>
+      <pubDate>Fri, 04 Dec 2020 16:14:44 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9B%BE%E5%92%8Cpytorch%E5%8A%A8%E6%80%81%E8%AE%A1%E7%AE%97%E6%A2%AF%E5%BA%A6/</guid>
+      <description>&lt;p&gt;吴恩达深度学习课程（计算图和pytorch动态计算梯度）
+计算图以及pytoch动态计算图代码构建&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>两数相加</title>
+      <link>http://upccaishu.top/post/algorithm/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</link>
+      <pubDate>Wed, 02 Dec 2020 16:03:37 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</guid>
+      <description>&lt;p&gt;两数相加&amp;ndash;leetcode刷题&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pytorch学习摘记（一）</title>
+      <link>http://upccaishu.top/post/skills/pytorch%E5%AD%A6%E4%B9%A0%E6%91%98%E8%AE%B0%E4%B8%80/</link>
+      <pubDate>Wed, 02 Dec 2020 15:52:17 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/pytorch%E5%AD%A6%E4%B9%A0%E6%91%98%E8%AE%B0%E4%B8%80/</guid>
+      <description>&lt;p&gt;pytorch 学习的入门，一些基本的概念名词&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>图床</title>
+      <link>http://upccaishu.top/post/others/%E5%9B%BE%E5%BA%8A/</link>
+      <pubDate>Wed, 02 Dec 2020 15:28:53 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/others/%E5%9B%BE%E5%BA%8A/</guid>
+      <description>&lt;p&gt;图床&amp;mdash;&amp;ndash;lychee-docker&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>吴恩达深度学习课程 逻辑回归中的梯度下降和代价函数</title>
+      <link>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%92%8C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 30 Nov 2020 15:18:18 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%92%8C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</guid>
+      <description>&lt;p&gt;吴恩达深度学习课程-逻辑回归中的梯度下降和代价函数&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>吴恩达深度学习课程 逻辑回归部分</title>
+      <link>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E9%83%A8%E5%88%86/</link>
+      <pubDate>Mon, 30 Nov 2020 15:07:06 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E9%83%A8%E5%88%86/</guid>
+      <description>&lt;p&gt;吴恩达深度学习课程小记&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ECS实例重启一些用到的命令</title>
+      <link>http://upccaishu.top/post/skills/ecs%E5%AE%9E%E4%BE%8B%E9%87%8D%E5%90%AF%E4%B8%80%E4%BA%9B%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Wed, 21 Oct 2020 14:55:43 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/ecs%E5%AE%9E%E4%BE%8B%E9%87%8D%E5%90%AF%E4%B8%80%E4%BA%9B%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;p&gt;ECS实例重启一些用到的命令&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客搭建初探</title>
+      <link>http://upccaishu.top/post/others/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%88%9D%E6%8E%A2/</link>
+      <pubDate>Tue, 20 Oct 2020 14:31:09 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/others/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%88%9D%E6%8E%A2/</guid>
+      <description>&lt;p&gt;搭建第一版的博客内容&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>自定义短语示例</title>
       <link>http://upccaishu.top/post/pre/shortcodes.html</link>
-      <pubDate>Sat, 06 Aug 2022 14:41:50 +0800</pubDate>
+      <pubDate>Sun, 06 Aug 2000 14:41:50 +0800</pubDate>
       
       <guid>http://upccaishu.top/post/pre/shortcodes.html</guid>
       <description>&lt;p&gt;虽然 &lt;code&gt;Markdown&lt;/code&gt; 语法已经非常丰富能够满足我们写文章的绝大部分需求，但是为更好的对文章内容进行更友好的排版，为引设计一套自定义的短语，便于在使用时能够快速引用。&lt;/p&gt;</description>
@@ -35,7 +240,7 @@
     <item>
       <title>Hugo 内置的 Chroma 语法高亮</title>
       <link>http://upccaishu.top/post/pre/syntax-highlighting.html</link>
-      <pubDate>Tue, 07 Jun 2022 19:09:52 +0800</pubDate>
+      <pubDate>Wed, 07 Jun 2000 19:09:52 +0800</pubDate>
       
       <guid>http://upccaishu.top/post/pre/syntax-highlighting.html</guid>
       <description>&lt;p&gt;Hugo 通过 Chroma 提供非常快速的语法高亮显示，现 Hugo 中使用 Chroma 作为代码块高亮支持，它内置在 Go 语言当中，速度是真的非常、非常快，而且最为重要的是它也兼容之前我们使用的 Pygments 方式。&lt;/p&gt;
@@ -49,7 +254,7 @@
     <item>
       <title>支持 Emoji 表情</title>
       <link>http://upccaishu.top/post/pre/emoji-support.html</link>
-      <pubDate>Sat, 04 Jun 2022 19:46:45 +0800</pubDate>
+      <pubDate>Sun, 04 Jun 2000 19:46:45 +0800</pubDate>
       
       <guid>http://upccaishu.top/post/pre/emoji-support.html</guid>
       <description>&lt;p&gt;Emoji 可以通过多种方式在 Hugo 项目中启用。&lt;/p&gt;
@@ -73,10 +278,26 @@
     <item>
       <title>Markdown 语法支持</title>
       <link>http://upccaishu.top/post/pre/markdown-syntax.html</link>
-      <pubDate>Fri, 03 Jun 2022 11:52:18 +0800</pubDate>
+      <pubDate>Sat, 03 Jun 2000 11:52:18 +0800</pubDate>
       
       <guid>http://upccaishu.top/post/pre/markdown-syntax.html</guid>
       <description>&lt;p&gt;仅以此篇文章来测试下在 &lt;code&gt;NexT&lt;/code&gt; 主题中在通过 &lt;code&gt;Hugo&lt;/code&gt; 引擎来建站时，是否支持 &lt;code&gt;Markdown&lt;/code&gt; 文件内容中所写的各种语法，并展示下实际的效果。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>建站一些命令！</title>
+      <link>http://upccaishu.top/post/pre/hello-world.html</link>
+      <pubDate>Fri, 02 Jun 2000 11:52:03 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/pre/hello-world.html</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“使用 &lt;code&gt;weight&lt;/code&gt; 关键字置顶文章。”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://gohugo.io/&#34; title=&#34;Hugo&#34; rel=&#34;noopener external nofollow noreferrer&#34; target=&#34;_blank&#34; class=&#34; exturl&#34;&gt;
+    Hugo
+    &lt;i class=&#34;fa fa-external-link-alt&#34;&gt;&lt;/i&gt;
+&lt;/a&gt; 是现今世界上最快的网站建设框架，也是最流行的开源静态站点生成器之一。 凭借其惊人的速度和灵活性，Hugo 让建设网站再次变得有趣起来。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eccube on 菜树的Blog</title>
+    <link>http://upccaishu.top/tags/eccube/</link>
+    <description>Recent content in Eccube on 菜树的Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 11 Aug 2021 18:53:16 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/eccube/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eccube4（插件开发三）</title>
+      <link>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</link>
+      <pubDate>Wed, 11 Aug 2021 18:53:16 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</guid>
+      <description>&lt;p&gt;Eccube4（插件开发三）
+CSV文件DOM头引起的编码问题。
+CSV直接用Excel打开，乱码问题解决。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eccube4（插件开发二）</title>
+      <link>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%8C/</link>
+      <pubDate>Sun, 08 Aug 2021 18:49:24 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%8C/</guid>
+      <description>&lt;p&gt;Eccube4（插件开发二）&lt;/p&gt;
+&lt;h2 id=&#34;多级折叠菜单&#34;&gt;多级折叠菜单&lt;/h2&gt;
+&lt;p&gt;－这更偏向于经验贴，而不是技术贴。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eccube4（插件开发一）</title>
+      <link>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%80/</link>
+      <pubDate>Thu, 29 Jul 2021 18:40:52 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%80/</guid>
+      <description>&lt;p&gt;Eccube4（插件开发一）&lt;/p&gt;
+&lt;p&gt;因为本人也是刚开始接触这个东西，有何不对之处还望批评指正。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Win10&#43;VScode&#43;phpStudy&#43;Xdebug进行PHP开发</title>
+      <link>http://upccaishu.top/post/skills/win10&#43;vscode&#43;phpstudy&#43;xdebug%E8%BF%9B%E8%A1%8Cphp%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Mon, 26 Jul 2021 18:32:47 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/win10&#43;vscode&#43;phpstudy&#43;xdebug%E8%BF%9B%E8%A1%8Cphp%E5%BC%80%E5%8F%91/</guid>
+      <description>&lt;p&gt;win10+VScode+phpStudy+Xdebug进行PHP开发&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Eccube4.0.3安装过程</title>
+      <link>http://upccaishu.top/post/skills/eccube4.0.3%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Sat, 17 Jul 2021 18:19:09 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/eccube4.0.3%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</guid>
+      <description>&lt;p&gt;eccube4.0.3安装过程&lt;/p&gt;
+&lt;p&gt;由于开发需要，接触eccube的开发，关于eccube的内容不做详细说明，此处只作为开发过程的流程。大体而言，就是安装好PHP环境，服务器环境，以及安装好数据库。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PhpStudy遇见的问题</title>
+      <link>http://upccaishu.top/post/skills/phpstudy%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Jul 2021 18:15:06 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/phpstudy%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;phpStudy遇见的问题&lt;/p&gt;
+&lt;p&gt;由于项目需要学习ec-cube开发，前期使用xampp配置了好半天，分开环境是明明白白的了，但是项目仍然起步不了，后来，转到Ubuntu下进行开发，仍然问题一箩筐。后来，在项目负责人的指导下，使用phpstudy集成工具进行开发，将环境在win下安装成功。于是我考虑使用Ubuntu重新走一遍流程。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

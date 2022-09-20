@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>问题解决 on 菜树的Blog</title>
+    <link>http://upccaishu.top/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+    <description>Recent content in 问题解决 on 菜树的Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 18 Jul 2021 18:28:39 +0800</lastBuildDate><atom:link href="http://upccaishu.top/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20.04下修改apache2默认网站路径</title>
+      <link>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sun, 18 Jul 2021 18:28:39 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</guid>
+      <description>&lt;p&gt;Ubuntu20.04下修改apache2默认网站路径&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客评论区 Utterances插件</title>
+      <link>http://upccaishu.top/post/solved/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA-utterances%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Tue, 23 Feb 2021 17:49:50 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA-utterances%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;p&gt;博客评论区-utterances插件&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在服务器上部署Jupyter</title>
+      <link>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</link>
+      <pubDate>Fri, 04 Dec 2020 16:32:00 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</guid>
+      <description>&lt;p&gt;在服务器上部署Jupyter
+服务器安装jupyter
+今天手边没有自己的电脑，但是想要编程，虽然有着很多的在线编程网站，但是在写python代码的时候，一些库没有，很恼火，但是又不能乱搞别人的电脑，就想起了搞一搞jupyter。目前看起来效果还不错。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

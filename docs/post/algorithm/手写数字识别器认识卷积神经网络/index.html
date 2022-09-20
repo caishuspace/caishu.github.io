@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)" />
+<meta name="generator" content="Hugo 0.102.3" />
+<link rel="shortcut icon" type="image/x-icon" href="/imgs/icons/favicon.ico">
+<link rel="icon" type="image/x-icon" href="/imgs/icons/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/imgs/icons/favicon_16x16_next.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/imgs/icons/favicon_32_32_next.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/imgs/icons/apple_touch_icon_next.png">
+<meta itemprop="name" content="手写数字识别器（认识卷积神经网络）" />
+<meta itemprop="description" content="手写数字识别器（认识卷积神经网络）" />
+<meta itemprop="datePublished" ZgotmplZ />
+<meta itemprop="dateModified" ZgotmplZ />
+<meta itemprop="image" content="http://upccaishu.top/imgs/hugo_next_avatar.png" />
+<meta itemprop="keywords" content="Code,pytorch,深度学习" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="手写数字识别器（认识卷积神经网络）" />
+<meta property="og:description" content="手写数字识别器（认识卷积神经网络）" />
+<meta property="og:image" content="/imgs/hugo_next_avatar.png" />
+<meta property="og:image:width" content="312" />
+<meta property="og:image:height" content="312" />
+<meta property="og:image:type" content="image/jpeg/png/svg/jpg" />
+<meta property="og:url" content="http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+<meta property="og:site_name" content="菜树的Blog" />
+<meta property="og:locale" content="zh-CN"/>
+<meta property="article:author" content="caishu" />
+<meta property="article:published_time" content="2021-02-18 16:59:56 &#43;0800 CST" />
+<meta property="article:modified_time" content="2021-02-18 16:59:56 &#43;0800 CST" />
+
+
+
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.1.2/css/all.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" />
+
+
+  <link rel="stylesheet" href="/css/main.min.befd8f01acefb0a8e79a4c379f39a631de38358a054869756ffb5e7baea7fe12.css">
+  <style type="text/css">
+    .post-footer, .flinks-list-footer hr:after {
+      content: "~ 我可是有底线的哟 ~";
+    }
+  </style>
+  <script class="next-config" data-name="page" type="application/json">{"comments":true,"isHome":false,"isPage":true,"path":"%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C","permalink":"http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/","title":"手写数字识别器（认识卷积神经网络）"}</script>
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    var script = document.createElement('script');
+      
+    script.charset = "UTF-8";
+    script.id      = "LA_COLLECT";
+    script.src     = "https:\/\/sdk.51.la\/js-sdk-pro.min.js";
+    script.async   = "true"
+    script.onload = function() {
+    
+    }
+
+  document.head.appendChild(script);
+});
+</script>
+
+
+
+
+  <title>手写数字识别器（认识卷积神经网络） - 菜树的Blog</title>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage"  class="use-motion" >
+  <div class="headband"></div>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+<div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">菜树的Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+    
+      <p class="site-subtitle" itemprop="description">caishu的个人小站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+      
+      <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+    <li class="menu-item menu-item-home">
+      <a href="/" class="hvr-icon-pulse " rel="section"><i class="fa fa-home hvr-icon"></i>首页
+      </a>
+    </li>
+    <li class="menu-item menu-item-about">
+      <a href="/about.html" class="hvr-icon-pulse " rel="section"><i class="fa fa-user hvr-icon"></i>关于
+      </a>
+    </li>
+    <li class="menu-item menu-item-flinks">
+      <a href="/flinks.html" class="hvr-icon-pulse " rel="section"><i class="fa fa-thumbs-up hvr-icon"></i>博客链接
+      </a>
+    </li>
+    <li class="menu-item menu-item-archives">
+      <a href="/archives/" class="hvr-icon-pulse " rel="section"><i class="fa fa-archive hvr-icon"></i>归档
+        <span class="badge">28</span>
+      </a>
+    </li>
+    <li class="menu-item menu-item-commonweal">
+      <a href="/404.html" class="hvr-icon-pulse " rel="section"><i class="fa fa-heartbeat hvr-icon"></i>公益 404
+      </a>
+    </li>
+    <li class="menu-item menu-item-search">
+      <a role="button" class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+    </div>
+  </div>
+      </div>
+      <div class="toggle sidebar-toggle" role="button">
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+  <span class="toggle-line"></span>
+</div>
+<aside class="sidebar">
+  <div class="sidebar-inner sidebar-overview-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+    <div class="sidebar-panel-container">
+      
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      
+      <div class="site-overview-wrap sidebar-panel">
+        
+<div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="caishu"
+      src="/imgs/hugo_next_avatar.png">
+  <p class="site-author-name" itemprop="name">caishu</p>
+  <div class="site-description" itemprop="description">时刻保持清醒的头脑和认知。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+    <div class="site-state-item site-state-posts">
+      <a href="/archives/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">
+      <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-tags">
+      <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span>
+      </a>
+    </div>
+  </nav>
+</div>
+<div class="links-of-social site-overview-item animated">
+
+
+  <span class="links-of-social-item">
+    <a href="https://github.com/caishuspace" title="Github → https://github.com/caishuspace" rel="noopener" class="hvr-icon-pulse" target="_blank">
+      <i class="fab fa-github fa-fw  hvr-icon "></i>Github
+    </a>
+  </span>
+  <span class="links-of-social-item">
+    <a href="mailto:upccaishu@gmail.com" title="E-Mail → mailto:upccaishu@gmail.com" rel="noopener" class="hvr-icon-pulse" target="_blank">
+      <i class="fa fa-envelope fa-fw  hvr-icon "></i>E-Mail
+    </a>
+  </span>
+</div>
+<div class="cc-license animated" itemprop="license">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank" title="共享知识">
+    <img src="/imgs/cc/big/by_nc_sa.svg" alt="共享知识">
+  </a>
+</div>
+<div class="links-of-blogroll site-overview-item animated">
+  <div class="links-of-blogroll-title">
+    <i class="fa fa-globe fa-fw"></i>友情链接
+  </div>
+  <ul class="links-of-blogroll-list">
+    <li class="links-of-blogroll-item">
+      <a href="https://ntutn.top/" title="https://ntutn.top/" target="_blank">归零幻想</a>
+    </li>
+    <li class="links-of-blogroll-item">
+      <a href="https://xyx6.top/" title="https://xyx6.top/" target="_blank">XYX</a>
+    </li>
+  </ul>
+</div>
+      </div>
+    </div>
+  </div>
+</aside>
+<div class="sidebar-dimmer"></div>
+    </header>
+    
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+<a href="https://github.com/caishuspace" rel="noopener external nofollow noreferrer" target="_blank" title="Follow me on GitHub" class="exturl github-corner">
+  <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+</a>
+  <script type="text/javascript" src="//sidecar.gitter.im/dist/sidecar.v1.js" async></script>
+<script type="text/javascript">
+((window.gitter = {}).chat = {}).options = {
+  room: "hugo-next/community"
+};
+</script>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+    <div class="main-inner post posts-expand">
+      
+  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/imgs/hugo_next_avatar.png">
+      <meta itemprop="name" content="caishu">
+    </span>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caishu">
+      <meta itemprop="description" content="时刻保持清醒的头脑和认知。">
+    </span>
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="手写数字识别器（认识卷积神经网络）">
+      <meta itemprop="description" content="手写数字识别器（认识卷积神经网络）">
+    </span>
+    <header class="post-header">
+       <h1 class="post-title" itemprop="name headline">手写数字识别器（认识卷积神经网络）
+  <a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/post/algorithm/%e6%89%8b%e5%86%99%e6%95%b0%e5%ad%97%e8%af%86%e5%88%ab%e5%99%a8%ef%bc%88%e8%ae%a4%e8%af%86%e5%8d%b7%e7%a7%af%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%ef%bc%89.md" rel="noopener external nofollow noreferrer" target="_blank" class="exturl post-edit-link" title="编辑"><i class="fa fa-pen-nib"></i></a> </h1> <div class="post-meta-container">
+  <div class="post-meta-items">
+    
+
+
+<span class="post-meta-item">
+  <span class="post-meta-item-icon">
+    <i class="far fa-calendar"></i>
+  </span>
+  <span class="post-meta-item-text">发表于：</span>
+  <time title="发表于：2021-02-18 16:59:56 &#43;0800 CST" itemprop="dateCreated datePublished" datetime="2021-02-18 16:59:56 &#43;0800 CST">2021-02-18</time>
+</span>
+    
+    
+<span class="post-meta-item">
+  <span class="post-meta-item-icon">
+    <i class="far fa-folder-open"></i>
+  </span>
+  <span class="post-meta-item-text">分类于：</span>
+  <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+    <a href="/categories/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98" itemprop="url" rel="index">
+      <span itemprop="name">算法刷题</span>
+    </a>
+  </span>
+</span>
+  </div>
+  <div class="post-meta-items">
+    
+<span class="post-meta-item" title="字数">
+  <span class="post-meta-item-icon">
+    <i class="far fa-file-word"></i>
+  </span>
+  <span class="post-meta-item-text">字数：</span><span>2844</span>
+</span>
+    
+<span class="post-meta-item" title="阅读">
+  <span class="post-meta-item-icon">
+    <i class="far fa-clock"></i>
+  </span>
+  <span class="post-meta-item-text">阅读：&asymp;</span>
+  <span>6分钟</span>
+</span>
+
+    
+<span class="post-meta-item" title="浏览">
+  <span class="post-meta-item-icon">
+    <i class="far fa-eye"></i>
+  </span>
+  <span class="post-meta-item-text">
+  浏览：
+  </span>
+  <span class="waline-pageview-count" data-path="/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><i class="fa fa-sync fa-spin"></i></span>
+</span>
+
+  </div>
+  
+</div>
+
+    </header>
+    <div class="post-body" itemprop="articleBody">
+      
+  <p>手写数字识别器（认识卷积神经网络）</p>
+<p>毕设，如同平地起高楼，不打地基，直接盖楼，还是比较麻烦的，基础的东西还是挺重要的，这个小实验，也就是用来练练手而已，跟自己的毕设似乎有一点关联，又似乎没有一点关联。这算是新年第一次开工吧，开学之后，面临着毕设，还有毕业多种事情要做，毕设现在还是比较费脑筋的问题。</p>
+<h2 id="利用mnist数据集和pytorch框架实现一个简单的cnn网络">利用MNIST数据集和pytorch框架，实现一个简单的CNN网络</h2>
+<ul>
+<li>data.py</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.nn <span style="color:#66d9ef">as</span> nn
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.autograd <span style="color:#f92672">import</span> Variable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.optim <span style="color:#66d9ef">as</span> optim
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.nn.functional <span style="color:#66d9ef">as</span> F
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torchvision.datasets <span style="color:#66d9ef">as</span> dsets
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torchvision.transforms <span style="color:#66d9ef">as</span> transforms
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>image_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">28</span> <span style="color:#75715e">#　图像总尺寸是28x28</span>
+</span></span><span style="display:flex;"><span>num_classes <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e"># 标签总类数  1~10</span>
+</span></span><span style="display:flex;"><span>num_epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">#　训练总周期</span>
+</span></span><span style="display:flex;"><span>batch_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">64</span> <span style="color:#75715e"># 一个批次的大小，64张图片</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#　加载数据集</span>
+</span></span><span style="display:flex;"><span>train_dataset <span style="color:#f92672">=</span> dsets<span style="color:#f92672">.</span>MNIST(root<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./root&#39;</span>, <span style="color:#75715e">#　文件存放路径</span>
+</span></span><span style="display:flex;"><span>                            train<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, <span style="color:#75715e"># 提取训练集</span>
+</span></span><span style="display:flex;"><span>                            transform<span style="color:#f92672">=</span>transforms<span style="color:#f92672">.</span>ToTensor(), <span style="color:#75715e"># 加载数据时，对图像做预处理</span>
+</span></span><span style="display:flex;"><span>                            download<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e"># 数据集不存在时，自动下载</span>
+</span></span><span style="display:flex;"><span>test_dataset <span style="color:#f92672">=</span> dsets<span style="color:#f92672">.</span>MNIST(root<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./root&#39;</span>, <span style="color:#75715e">#　文件存放路径</span>
+</span></span><span style="display:flex;"><span>                            train<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>                            transform<span style="color:#f92672">=</span>transforms<span style="color:#f92672">.</span>ToTensor(), )<span style="color:#75715e"># 加载数据时，对图像做预处理)</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#75715e"># 定义数据加载器，自动将数据切分成批，顺序随机打乱</span>
+</span></span><span style="display:flex;"><span>                            train_loader <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>DataLoader(dataset <span style="color:#f92672">=</span> train_dataset,
+</span></span><span style="display:flex;"><span>                            batch_size<span style="color:#f92672">=</span>batch_size,
+</span></span><span style="display:flex;"><span>                            shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>                            
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  定义数据集下标</span>
+</span></span><span style="display:flex;"><span>indices <span style="color:#f92672">=</span> range(len(test_dataset))
+</span></span><span style="display:flex;"><span>indices_val <span style="color:#f92672">=</span> indices[:<span style="color:#ae81ff">5000</span>]
+</span></span><span style="display:flex;"><span>indices_test <span style="color:#f92672">=</span> indices[<span style="color:#ae81ff">5000</span>:]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据下标构造两个数据集的SunsetRandomSampler采样器</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sampler_val <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>SubsetRandomSampler(indices_val
+</span></span><span style="display:flex;"><span>nsampler_test <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>SubsetRandomSampler(indices_test)
+</span></span><span style="display:flex;"><span>n<span style="color:#75715e"># 根据两个采样器，定义加载器</span>
+</span></span><span style="display:flex;"><span>validation_loader <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>DataLoader(dataset<span style="color:#f92672">=</span>test_dataset,
+</span></span><span style="display:flex;"><span>                                               batch_size<span style="color:#f92672">=</span>batch_size,
+</span></span><span style="display:flex;"><span>                                               shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>                                               sampler<span style="color:#f92672">=</span>sampler_val
+</span></span><span style="display:flex;"><span>                                               )
+</span></span><span style="display:flex;"><span>test_loader <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>DataLoader(dataset<span style="color:#f92672">=</span>test_dataset,
+</span></span><span style="display:flex;"><span>                                                batch_size<span style="color:#f92672">=</span>batch_size,
+</span></span><span style="display:flex;"><span>                                                shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>                                                sampler<span style="color:#f92672">=</span>sampler_test
+</span></span><span style="display:flex;"><span>                                                )
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># # 随便从数据集中读入一张图片</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># idx = 100</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># muteimg = train_dataset[idx][0].numpy()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.imshow(muteimg[0, ...])</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.show()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(\&#34;标签是：\&#34;,train_dataset[idx][1])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>ConvNet.py</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.nn <span style="color:#66d9ef">as</span> nn
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.nn.functional <span style="color:#66d9ef">as</span> F
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>image_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">28</span> <span style="color:#75715e">#　图像总尺寸是28x28</span>
+</span></span><span style="display:flex;"><span>num_classes <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e"># 标签总类数  1~10</span>
+</span></span><span style="display:flex;"><span>num_epochs <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">#　训练总周期</span>
+</span></span><span style="display:flex;"><span>batch_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">64</span> <span style="color:#75715e"># 一个批次的大小，64张图片</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 定义一个卷积神经网络，4，8为指定两个卷积层厚度</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># from MINIST.data import image_size, num_classes</span>
+</span></span><span style="display:flex;"><span>depth <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConvNet</span>(nn<span style="color:#f92672">.</span>Module):
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 复写构造函数 </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">def</span> __init__(self):      
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;ConvNet 起始时间&#39;</span>, time<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>))    
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 该函数在创建一个ConvNet对象时即net=ConvNet()时就会被调用</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 首先调用父类的构造函数</span>
+</span></span><span style="display:flex;"><span>      super(ConvNet, self)<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 定义一个卷积层，输入通道为1，输出通道为4，窗口大小为5，padding为2\r\n        </span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>conv1 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Conv2d(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, padding<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)      
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>pool <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>MaxPool2d(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># 定义一个池化层，一个窗口为2x2的池化运算、\r\n        </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 第二层卷积  输入通道为depth[0],输入通道为depth[1],窗口为5,padding为2\r\n        </span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>conv2 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Conv2d(depth[<span style="color:#ae81ff">0</span>], depth[<span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">5</span>, padding<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e"># 一个线性连接层，输入尺寸为最后一层立方体的线性平铺 输出层512个节点\r\n        </span>
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>fc1 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(image_size <span style="color:#f92672">//</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> image_size <span style="color:#f92672">//</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> depth[<span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">512</span>)
+</span></span><span style="display:flex;"><span>      self<span style="color:#f92672">.</span>fc2 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span style="color:#ae81ff">512</span>, num_classes)  <span style="color:#75715e"># 最后一层线性分类单元输入为512，，输出为要做分类的类别数\r\n\r\n    </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, x):  <span style="color:#75715e"># 该函数完成神经网络真正的前向运算，在这里把各个组件进行实际的拼装\r\n        # x的尺寸 (batch_size,image_channels,image_width,image_height)\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>conv1(x)  <span style="color:#75715e"># 第一层卷积\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(x)  <span style="color:#75715e"># 激活函数用ReLU，防止过拟合\r\n        # 此时x的尺寸 (batch_size,num_filters,image_width,image_height)\r\n\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>pool(x)  <span style="color:#75715e"># 第二层是池化，将图片变小\r\n        # x尺寸 (batch_size,depth[0],image_width/2,image_height/2)\r\n\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>conv2(x)  <span style="color:#75715e"># 第三层又是卷积，窗口为5，输入输出通道分别为depth[0]=4,depth[1]=8\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(x)  <span style="color:#75715e"># 非线性函数\r\n        # x尺寸 (batch_size,depth[1],image_width/2,image_height/2)\r\n\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>pool(x)  <span style="color:#75715e"># 第四层是池化，将图片缩小为原来的1/4\r\n        # x尺寸 (batch_size,depth[1],image_width/4,image_height/4)\r\n\r\n        # 将立体的特征图tensor压成一维向量\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>view(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, image_size <span style="color:#f92672">//</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> image_size <span style="color:#f92672">//</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> depth[<span style="color:#ae81ff">1</span>])  <span style="color:#75715e"># 该函数将x压成一维向量\r\n        </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># x尺寸 (batch_size,image_size//4*image_size//4*depth[1])\r\n\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>fc1(x))  <span style="color:#75715e"># 第五层为全连接，ReLUctant激活函数\r\n        </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># x的尺寸，(batch_size,512)\r\n\r\n        # 以0.5的概率对这一层进行dropout操作，防止过拟合\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>dropout(x, training<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>training)    
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>fc2(x)  <span style="color:#75715e"># 全连接\r\n        # x的尺寸(batch_size,num_classes)\r\n\r\n        # 输出层为log_softmax,即概率对数值log(p(x)),采用这个函数，可以使得后面交叉熵计算更快\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>log_softmax(x, dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)       
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x    
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">retrieve_features</span>(self, x):       <span style="color:#75715e"># 该函数用于提取网络的特征图，返回feature_map1,feature_map2为前两层卷积层的特征图\r\n        </span>
+</span></span><span style="display:flex;"><span>        feature_map1 <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>conv1(x))  <span style="color:#75715e"># 完成第一次卷积\r\n        </span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>pool(feature_map1)  <span style="color:#75715e"># 完成第一次池化\r\n        </span>
+</span></span><span style="display:flex;"><span>        feature_map2 <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>relu(self<span style="color:#f92672">.</span>conv2(x))        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (feature_map1, feature_map2)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>init</strong>.py</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.autograd 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> Variable
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.nn <span style="color:#66d9ef">as</span> nn
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.optim <span style="color:#66d9ef">as</span> optim
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> MINIST.data <span style="color:#f92672">import</span> num_epochs, train_loader, validation_loader, test_loader
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> MINIST.convNet <span style="color:#f92672">import</span> ConvNet
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;加载完数据</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">)</span>
+</span></span><span style="display:flex;"><span>net <span style="color:#f92672">=</span> ConvNet()
+</span></span><span style="display:flex;"><span>criterion <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>CrossEntropyLoss() <span style="color:#75715e">#  Loss 函数定义，交叉熵</span>
+</span></span><span style="display:flex;"><span>optimizer <span style="color:#f92672">=</span> optim<span style="color:#f92672">.</span>SGD(net<span style="color:#f92672">.</span>parameters(),lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.001</span>,momentum<span style="color:#f92672">=</span><span style="color:#ae81ff">0.9</span>) <span style="color:#75715e"># 定义优化器，普通的梯度下降算法</span>
+</span></span><span style="display:flex;"><span>record <span style="color:#f92672">=</span> []  <span style="color:#75715e"># 记录准确率等数值容器\r\nweights = [] # 每若干步就记录一次卷积核</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rightness</span>(predictions, labels): 
+</span></span><span style="display:flex;"><span>    pred <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>max(predictions<span style="color:#f92672">.</span>data, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">1</span>] <span style="color:#75715e"># 对于任意一行（一个样本）的输出值的第1个维度，求最大，得到每一行的最大元素的下标\r\n    </span>
+</span></span><span style="display:flex;"><span>    rights <span style="color:#f92672">=</span> pred<span style="color:#f92672">.</span>eq(labels<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>view_as(pred))<span style="color:#f92672">.</span>sum() <span style="color:#75715e">#将下标与labels中包含的类别进行比较，并累计得到比较正确的数量\r\n    </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> rights, len(labels) <span style="color:#75715e">#返回正确的数量和这一次一共比较了多少元素\r\n\r\n# 开始循环训练\r\n</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;起始时间</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">,time.strftime(</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> epoch <span style="color:#f92672">in</span> range(num_epochs):    
+</span></span><span style="display:flex;"><span>train_rights <span style="color:#f92672">=</span> [] <span style="color:#75715e"># 记录训练数据集准确率的容器\r\n    </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> batch_idx, (data,target) <span style="color:#f92672">in</span> enumerate(train_loader):        <span style="color:#75715e"># 将Tensor转化为Var，data为一批图像，target为一批标签\r\n        </span>
+</span></span><span style="display:flex;"><span>  data,target <span style="color:#f92672">=</span> Variable(data),Variable(target)\r\n        <span style="color:#75715e"># 给网络模型做标记，标志着在训练集上训练\r\n        # 这种区分为了打开关闭net的training标志，从而决定是否运行dropout\r\n</span>
+</span></span><span style="display:flex;"><span>  net<span style="color:#f92672">.</span>train()       
+</span></span><span style="display:flex;"><span>  output <span style="color:#f92672">=</span> net(data) <span style="color:#75715e"># 神经网络完成一次前馈计算过程，得到预测输出output\r\n        </span>
+</span></span><span style="display:flex;"><span>  loss <span style="color:#f92672">=</span> criterion(output,target) <span style="color:#75715e"># 将output与target相比，计算误差\r\n        </span>
+</span></span><span style="display:flex;"><span>  optimizer<span style="color:#f92672">.</span>zero_grad() <span style="color:#75715e"># 清空梯度信息\r\n        </span>
+</span></span><span style="display:flex;"><span>  loss<span style="color:#f92672">.</span>backward() <span style="color:#75715e"># 反向传播\r\n        </span>
+</span></span><span style="display:flex;"><span>  optimizer<span style="color:#f92672">.</span>step() <span style="color:#75715e"># 一步随机梯度下降算法\r\n        </span>
+</span></span><span style="display:flex;"><span>  right <span style="color:#f92672">=</span> rightness(output,target) <span style="color:#75715e"># 计算准确率所需数值，返回值为（正样本样例数，总样本数）\r\n        </span>
+</span></span><span style="display:flex;"><span>  train_rights<span style="color:#f92672">.</span>append(right) <span style="color:#75715e"># 将计算结果装到列表容器train_rights中\r\n\r\n        </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> batch_idx <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>: <span style="color:#75715e"># 每间隔100个batch执行一次打印操作\r\n            </span>
+</span></span><span style="display:flex;"><span>      net<span style="color:#f92672">.</span>eval() <span style="color:#75715e"># 给网络模型做标记，标志着在训练集上训练\r\n            </span>
+</span></span><span style="display:flex;"><span>      val_rights <span style="color:#f92672">=</span> [] <span style="color:#75715e"># 记录校验数据集准确率的容器\r\n           </span>
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;MyEpoch [</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">], Step [</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">], Loss: </span><span style="color:#e6db74">{:.4f}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format(epoch <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, num_epochs, <span style="color:#ae81ff">100</span>, len(train_loader), loss<span style="color:#f92672">.</span>item()))            
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#39;当前时间</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">, time.strftime(&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;))            # 开始在校验集上做循环，季孙校验集准确度</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">            </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (data,target) <span style="color:#f92672">in</span> validation_loader:              
+</span></span><span style="display:flex;"><span>    data,target <span style="color:#f92672">=</span> Variable(data),Variable(target)                
+</span></span><span style="display:flex;"><span>    output <span style="color:#f92672">=</span> net(data)            
+</span></span><span style="display:flex;"><span>    right <span style="color:#f92672">=</span> rightness(output,target)
+</span></span><span style="display:flex;"><span>    val_rights<span style="color:#f92672">.</span>append(right)            <span style="color:#75715e"># 分别计算目前已经计算过的测试集以及全部校验集上模型的表现：分类准确率\r\n            # train_r 为一个二元组，分别记录所有训练集上分类正确的数量和该集合中总的样本数\r\n            </span>
+</span></span><span style="display:flex;"><span>    train_r <span style="color:#f92672">=</span> (sum([tup[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> tup <span style="color:#f92672">in</span> train_rights]),sum(tup[<span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">for</span> tup <span style="color:#f92672">in</span> train_rights))           
+</span></span><span style="display:flex;"><span>    val_r <span style="color:#f92672">=</span> (sum([tup[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> tup <span style="color:#f92672">in</span> val_rights]),sum(tup[<span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">for</span> tup <span style="color:#f92672">in</span> val_rights))           
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">.</span>append((<span style="color:#ae81ff">100</span><span style="color:#f92672">-</span><span style="color:#ae81ff">100.</span><span style="color:#f92672">*</span>train_r[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">/</span>train_r[<span style="color:#ae81ff">1</span>],<span style="color:#ae81ff">100</span><span style="color:#f92672">-</span><span style="color:#ae81ff">100.</span><span style="color:#f92672">*</span>val_r[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">/</span>val_r[<span style="color:#ae81ff">1</span>]))          
+</span></span><span style="display:flex;"><span>    weights<span style="color:#f92672">.</span>append([net<span style="color:#f92672">.</span>conv1<span style="color:#f92672">.</span>weight<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>clone(),net<span style="color:#f92672">.</span>conv1<span style="color:#f92672">.</span>bias<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>clone(),net<span style="color:#f92672">.</span>conv2<span style="color:#f92672">.</span>weight<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>clone(),net<span style="color:#f92672">.</span>conv2<span style="color:#f92672">.</span>bias<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>clone()])
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;训练结束时间&#39;</span>,time<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 在测试集上分批运行，并计算总的正确率</span>
+</span></span><span style="display:flex;"><span>    net<span style="color:#f92672">.</span>eval()
+</span></span><span style="display:flex;"><span>    vals <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 对测试集进行循环\r\n</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> data, target <span style="color:#f92672">in</span> test_loader:    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> torch<span style="color:#f92672">.</span>no_grad()     
+</span></span><span style="display:flex;"><span>    data, target <span style="color:#f92672">=</span> Variable(data),Variable(target)   
+</span></span><span style="display:flex;"><span>    output <span style="color:#f92672">=</span> net(data) <span style="color:#75715e"># 将特征数据输入网络，得到分类输出</span>
+</span></span><span style="display:flex;"><span>    val <span style="color:#f92672">=</span> rightness(output, target)   
+</span></span><span style="display:flex;"><span>    vals<span style="color:#f92672">.</span>append(val)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 计算准确率</span>
+</span></span><span style="display:flex;"><span>    rights <span style="color:#f92672">=</span> (sum([tup[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> tup <span style="color:#f92672">in</span> vals]),sum([tup[<span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">for</span> tup <span style="color:#f92672">in</span> vals]))
+</span></span><span style="display:flex;"><span>    right_rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>rights[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> rights[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;准确率&#34;</span>,right_rate)print(<span style="color:#e6db74">&#39;最后时间&#39;</span>,time<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>))
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">7</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(record) <span style="color:#75715e"># record 记录了每一个打印周期的训练集和校验集上的准确</span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Step&#34;</span>)
+</span></span><span style="display:flex;"><span>    nplt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Erro rate&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>    print<span style="color:#e6db74">&#34;全部结束&#34;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </div>
+    <footer class="post-footer">
+      
+
+<div class="post-tags">
+  
+    <a href="/tags/code">
+    Code
+  </a>
+    <a href="/tags/pytorch">
+    pytorch
+  </a>
+    <a href="/tags/%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0">
+    深度学习
+  </a>
+</div>
+
+<div class="addthis_inline_share_toolbox" style="text-align: center;"></div>
+<hr/>
+
+
+
+<div class="post-copyright">
+  <img src="/imgs/cc/cc.svg" width="75" height="75" align="right" />
+  <ul>
+    <li class="post-copyright-title">
+      <strong>文章标题：</strong>
+      手写数字识别器（认识卷积神经网络）
+    </li>
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>
+      caishu
+    </li>
+    <li class="post-copyright-link"> 
+      <strong>本文链接：</strong>
+       <a id="post-cr-link" href="http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="手写数字识别器（认识卷积神经网络）">http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target='_blank' href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'>BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</div>
+
+<div class="post-nav">
+  <div class="post-nav-next post-nav-item">
+    <a href="/post/algorithm/%E8%9A%82%E8%9A%81or%E8%9C%9C%E8%9C%82%E8%BF%81%E7%A7%BB%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="next" title="蚂蚁or蜜蜂（迁移卷积神经网络）">
+      <i class="fa fa-chevron-left"></i> 蚂蚁or蜜蜂（迁移卷积神经网络）
+    </a>
+  </div>
+  <div class="post-nav-prev post-nav-item">
+    <a href="/post/skills/java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/" rel="prev" title="Java后端开发学习之路">
+      Java后端开发学习之路
+      <i class="fa fa-chevron-right"></i>
+    </a>
+  </div>
+</div>
+    </footer>
+  </article>
+</div>
+<div class="post-comments">
+  <div class="comment-head">
+    <div class="comment-headline">
+      <i class="fas fa-comments fa-fw"></i>
+      <span>评论交流</span>
+    </div>
+  </div>
+  <div class="comment-wrap">
+  
+    <div><div class="comment-loading">
+  <i class="fa fa-sync fa-spin"></i>
+</div><div class="utterances-container"></div>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+<div class="copyright">
+  &copy;
+  <span itemprop="copyrightYear">
+    2020 - 2022
+  </span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caishu</span>
+</div>
+
+<div class="powered-by">
+  由 <a href='https://gohugo.io' target='_blank'>Hugo</a> &amp; <a href='https://github.com/hugo-next/hugo-theme-next' target='_blank'>Hugo NexT.Gemini</a> 强力驱动
+</div>
+
+
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":true,"hostname":"http://upccaishu.top","i18n":{"empty":"没有找到任何搜索结果：${query}","hits":"","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"path":"searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"root":"/","scheme":"Gemini","sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"utterances":{"cfg":{"issueterm":"pathname","label":"comments","repo":"caishuspace/My_blog_comments","theme":"preferred-color-scheme"},"js":"https://utteranc.es/client.js"},"vendor":{"plugins":"unpkg","router":"https://unpkg.com"},"version":"4.2.0","waline":{"cfg":{"emoji":false,"imguploader":false,"pageview":true,"placeholder":"请文明发言","requiredmeta":["nick","mail"],"serverurl":null,"wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.6.1"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.6.1"}}}</script>
+
+
+
+
+
+<script type="text/javascript" src="/js/main.min.2164f90f13ed36be7c6f62d10053080cf36651d4dfde7469dc0ee3ff84742502.js" defer></script>
+
+
+</body>
+
+</html>

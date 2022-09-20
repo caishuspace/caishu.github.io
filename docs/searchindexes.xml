@@ -2,17 +2,377 @@
 <search>
   
   <entry>
-    <title>建站一些命令！</title>
-    <url>http://upccaishu.top/post/pre/hello-world.html</url>
-    <categories><category>hugo说明</category>
+    <title>关于 我</title>
+    <url>http://upccaishu.top/about.html</url>
+    <categories>
     </categories>
     <tags>
-      <tag>Hugo</tag>
-      <tag>开始</tag>
     </tags>
-    <content type="html"><![CDATA[ “使用 weight 关键字置顶文章。”
-Hugo是现今世界上最快的网站建设框架，也是最流行的开源静态站点生成器之一。 凭借其惊人的速度和灵活性，Hugo 让建设网站再次变得有趣起来。
-快速开始 发表新文章 1 $ hugo server --buildDrafts 更多信息：内容格式启动服务以实时预览的方式 1 $ hugo server 启动服务 1 $ hugo server 更多信息：Hugo 服务命令行生成静态文件 为了部署到线上，需要将 Markdown 文件打包成 HTML 文件。打包命令如下，hugo-theme-next 是主题名：(命令必须在网站的根目录下执行) 1 $ hugo -t hugo-theme-next 1 $ hugo --theme=hyde hugo-theme-next 更多信息：Hugo 建站部署到服务器 $ hugo deploy 更多信息：Hugo 发布祝你好运，相信你会喜欢上 Hugo 建站的旅程！
+    <content type="html"><![CDATA[一名在校生，时常分享Coding及炼丹生活。
+我们的愿景 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Eccube4（插件开发三）</title>
+    <url>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>php</tag>
+      <tag>Eccube</tag>
+    </tags>
+    <content type="html"><![CDATA[Eccube4（插件开发三） CSV文件DOM头引起的编码问题。 CSV直接用Excel打开，乱码问题解决。
+前言 有个任务，针对导出csv文件，直接Excel打开乱码编程语言是PHP。 BOM(byte-order mark，字节顺序标记)，详细可百度。 乱码根源 学计算机的应该童鞋们，应该很清晰，乱码问题，那就是编码不对嘛，找到正确的编码，就好了。（之前从未想过有一天会栽在编码问题上，之前一般是系统切换，才会导致这种问题）。 原因 PHP程序默认导出CSV编码方式，是UTF-8，还是不带BOM头，也叫万国码。具体不赘述。而本地Excel（简体中文环境下）默认使用的GB2321编码方式（也有网友说是Ascii编码，是什么不重要，知道两个编码方式不一样就对了）。 在没有BOM头的文件中，默认打开方式的编码是Excel的编码方式。 问题解决方案一（针对用户，治标） office-2019
+利用ofice-Excel表格的数据导入功能，导入文件时候，源文件编码记得选UTF-8，然后导入数据即可。 问题解决方案二（针对程序员，治本） 直接在程序上，生成文件时，添加BOM头。\r\n- 缺少的BOM头xEFxBBxBF 直接把上述DOM添加到文章开头即可，就是文件读写的时候。 后记 结果就加了一行代码，过程整了一下午 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Eccube4（插件开发二）</title>
+    <url>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%8C/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>php</tag>
+      <tag>Eccube</tag>
+    </tags>
+    <content type="html"><![CDATA[Eccube4（插件开发二）
+多级折叠菜单 －这更偏向于经验贴，而不是技术贴。
+前面 本意是想实现一个Tree，但是这个Tree从某种程度上来说是十分简单的，但同时想要做好，却又是十分艰难的。在一些现在比较主流的前端UI框架里，大多有此类型的树形控件（本人不怎么接触前端，了解有限） 比如[[框架]ant design ][https://ant.design/components/tree-cn/]。github上，也有此类插件可引用，但是大多数都是属于那种自己构建Json数据，然后利用JS对DOM进行操作。 [https://ant.design/components/tree-cn/]: https://ant.design/components/tree-cn/&quot;Ant Design of Vue&quot;
+本来的思路，使用JS重新构建JSON数据，然后套用插件，结果无奈，被迫放弃了这个思路。因为引入一个新的框架，成本开销还是比较大的，其实是在已经使用一个框架的前提下。 －后来改变思路，想使用自己写的JS+HTML+CSS封装一下，来对DOM进行操作，写自己的Tree，后来也放弃了。原因是，由于原框架了解少，牵一发而动全身，工作量会越走越大。无奈，最后，只能是在原来的内容上修修改改。所幸，最后成功了。
+敲代码是快乐的，但思考的过程是痛苦的 -当不会的时候，是困难的，当熟悉了之后吗，简单了。
+最后的代码实现，其实只有几十行的代码量。得益于舍友的提示，最后改了个方式&mdash;&ndash;-数据可以有，我看不见你，你不就没有了？ 使用dissplay属性，或者hide和show方法，可以实现树形结构的隐藏和出现！ 其他就是分析你的数据标签结构，然后解析DOM节点，有针对性地进行展开折叠就好了。 个人针对个人特殊情况写的，没有普遍性，没有代码参考价值，思想还是可以的（也有可能是这种思维早就有，但是，本人接触前端开发少，所以产生的错觉。（其实有一本书，描述方式时，曾经利用过这中display属性进行前端的这种数据通信））（朋友也曾在公司的业务中，用过这种思维方式，也被上司采纳了！） 后记 这次深切让我预习复习了前端相关内容知识啊，被打击的不行，这知识海洋差点给淹死~ ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Eccube4（插件开发一）</title>
+    <url>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%80/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>php</tag>
+      <tag>Eccube</tag>
+    </tags>
+    <content type="html"><![CDATA[Eccube4（插件开发一）
+因为本人也是刚开始接触这个东西，有何不对之处还望批评指正。
+何为Eccube4 至于Eccube4是啥，感兴趣的可以去百度了。从技术角度，就是一个网站，一个类似框架的网站，可供开发人员自行扩充的网站。个人觉得，说Eccube是个网站，不如说它是个框架，一个电商平台的框架。 平心而论，这个网站规模是比较庞大的，从目前的接触来说，该网站主题使用了PHP作为建站语言，其文件组织结构类似Symofony，当然，其开发也是使用Symfony框架开发此网站。其前端模板引擎使用了twig，至于这个twig是啥，我目前也是一知半解,用程序员的话说，这就是一个模板引擎，和thymeleaf，jsp差不多。至于twig的用法，可以参考网站https://twig.symfony.com/doc/3.x/ 也可自行查找汉化网站。 其实新入门一个内容，不害怕新，但是害怕没有成熟的生态和详尽的说明文档，依靠试错是很麻烦并且费事的。目前，国内的IT环境搜索Eccube的内容比较少，在V2EX上有零星的介绍，所以，可以去雅虎搜索一下，内容稍微多点，并且详细点,毕竟雅虎是日本的X度，也可以具体怎么去搜索，那就自己去摸索了，毕竟茶水不是那么好喝的。 Plugin 插件开发 先声明：我虽然这么干了，但是标准流程未必是这么走的。 先说点废话 一开始，我也是蛮好奇这个插件怎么开发的，毕竟那些插件的模板样例，都是一个压缩文件，解压之后的目录结构类似于Symfony创建项目的文件目录结构。所以开始，我是有着两个猜想的，一个是，直接构建目录，完成功能之后，打包压缩，但是吧，这样操作也存在显而易见的问题，就是，你凭什么让你的Plugin跟原网站结合？另一个猜想就是，在文件的目录下面创建Symfony项目，作为一部分进行开发。 很不幸运，这两个方式都是错的。下面开始说正确的插件开发流程。 上正餐 开发其实是使用Eccube的bin/console命令进行创建Plugin骨架，这也是为什么我前面觉得Eccube更像一个矿建的原因。 创建插件 php bin/console eccube:plugin:generate php bin/console e:p:g 以上两个命令均可 安装插件 php bin/console eccube:plugin:install --code=upccaishu[上面创建的code名称，作为plugin的唯一标识，在一个项目里，具有唯一性] php bin/console e:p:i 激活插件 php bin/console eccube:plugin:enable php bin/console e:p:e 具体详细内容，感兴趣的可以联系我一起学习，以上就是搭建Plugin的空壳子，空壳子搭建简单，但是找寻资料是真的头秃。上网找相关资料，都能找到公司。找不到博客，也说明了问题。 临时任务 debug- 跟一个应该差不多同龄的哥们一块找bug，找Eccube的bug，目前已经定位到了出错的原因和直接出错的地方，但是修改真的，还没有头绪，毕竟，内容还没看完理解好，就去找别人的bug，有那么亿点点难。害怕涉及比较隐私的地方，所以不详细说了。 不得不说，运维的时候，就体现出来规范开发的必要性！！！ ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Win10+VScode+phpStudy+Xdebug进行PHP开发</title>
+    <url>http://upccaishu.top/post/skills/win10+vscode+phpstudy+xdebug%E8%BF%9B%E8%A1%8Cphp%E5%BC%80%E5%8F%91/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>php</tag>
+      <tag>Eccube</tag>
+    </tags>
+    <content type="html"><![CDATA[win10+VScode+phpStudy+Xdebug进行PHP开发
+准备工作 安装好VScode+phpstudy，很简单，基本都是一路next。 phpstudy是一个很好的php环境集成工具，新手建议使用，为了自己加深理解，可以自己安装环境。 vscode是一个轻量级的编辑器，可以用来书写各种语言，拥有强大的插件库。 配置过程 php语言设置 使用phpstudy安装好apache或者nginx，数据库,并安装好自己需要的PHP版本。（其实开发阶段，可以只安装php+数据库即可，在运行部署的时候使用apache或者ngnix） VsCode安装插件PHP Debug,PHP Intelephense,PHP ointellisense for codeigniter,PHP Server,PHP Xdebug等 php.ini配置文件（使用phpstudy启用Xdebug，自动生成的配置信息） 1 2 3 4 5 6 7 8 9 10 11 12 13 [Xdebug] zend_extension=G:/phpstudy_pro/Extensions/php/php7.3.4nts/ext/php_xdebug.dll xdebug.collect_params=1 xdebug.collect_return=1 xdebug.auto_trace=Off xdebug.trace_output_dir=G:/phpstudy_pro/Extensions/php_log/php7.3.4nts.xdebug.trace xdebug.profiler_enable=Off xdebug.profiler_output_dir=G:/phpstudy_pro/Extensions/php_log/php7.3.4nts.xdebug.profiler xdebug.remote_enable=on xdebug.remote_autostart = on xdebug.remote_host=localhost xdebug.remote_port=900 xdebug.remote_handler=dbgp 补充一句，php.ini中启用Xdebug插件，如果使用phpstudy的话，直接在控制面板里启用Xdebug即可。从网上自己找配置文件也可以（此处仅作为一个提醒）。 语言最后一点，很重要！！！要把php的路径放入环境变量里，不然会报错（这里的路径只到php.exe的上级目录即可，也就是目录里不包含这个文件名，否则会报错） [![php报错](http://upccaishu.top:5120/images/big/9662469bcc72ca6f834cebcb9da5918a.png &quot;php报错&quot;)](http://upccaishu.top:5120/images/big/9662469bcc72ca6f834cebcb9da5918a.png&quot;php报错&quot;) VsCode配置 setting.json文件 设置-&gt;扩展-&gt;PHP-&gt;setting.json文件,具体内容如下： 1 2 3 4 5 { &#34;php.validate.executablePath\&#34;: \&#34;G:/phpstudy_pro/Extensions/php/php7.3.4nts/php.exe\&#34;, &#34;phpserver.port\&#34;: 9000, \&#34;phpserver.phpConfigPath\&#34;: \&#34;G:\\\\phpstudy_pro\\\\Extensions\\\\php\\\\php7.3.4nts\\\\php.ini\&#34;, &#34;phpserver.phpPath\&#34;: \&#34;G:\\\\phpstudy_pro\\\\Extensions\\\\php\\\\php7.3.4nts\\\\php.exe\&#34;, } launch.json 运行-&gt;打开配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 { // 使用 IntelliSense 了解相关属性。 // 悬停以查看现有属性的描述。 // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387 \&#34;version\&#34;: \&#34;0.2.0\&#34;, \&#34;configurations\&#34;: [ { &#34;name\&#34;: \&#34;Listen for Xdebug\&#34;, \&#34;type\&#34;: \&#34;php\&#34;, \&#34;request\&#34;: \&#34;launch\&#34;, \&#34;port\&#34;: 9000 } ] } 写在最后 QQQQ - 程序能跑起来，就千万别动！！！！无论程序是以什么情况跑起来的！好奇心不要太强，尤其是DDL逼近的时候，不然会十分头疼！]]></content>
+  </entry>
+  
+  <entry>
+    <title>Ubuntu20.04下修改apache2默认网站路径</title>
+    <url>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</url>
+    <categories><category>问题解决</category>
+    </categories>
+    <tags>
+      <tag>Ubuntu</tag>
+      <tag>Linux</tag>
+      <tag>apache2</tag>
+    </tags>
+    <content type="html"><![CDATA[Ubuntu20.04下修改apache2默认网站路径
+原因\r\n- 路径下会出现权限问题，每次保存都输入密码，所以修改路径到个人用户路径下 本着避免不交代环境只交代怎么做的流氓行为，先交代一下环境问题。本文是在Ubnutu20.04,apahce2环境下进行的修改。 过程 修改文件/etc/apache2/apache2.config，找到如下代码块 1 2 3 4 5 &lt;dirctory /var/www&gt; //把此处路径修改为自己的路径	options···· ··· ··· &lt;/dirctory&gt; 修改文件/etc/aapche2/sites-enabled/000default.conf,找如下代码，将路径修改为自己的 1 DocumentRoot /usr/local/www/data 此外在下面新增一部分代码（不然会出现403错误）
+1 2 3 4 5 6 7 &lt;directory &#34;/usr/local/www/data\&#34;&gt; //此处将路径修改为自己的 Options Indexes FollowSymLinks AllowOverride None Order allow,deny Allow from all &lt;/directory&gt; ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Eccube4.0.3安装过程</title>
+    <url>http://upccaishu.top/post/skills/eccube4.0.3%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>php</tag>
+      <tag>Eccube</tag>
+    </tags>
+    <content type="html"><![CDATA[eccube4.0.3安装过程
+由于开发需要，接触eccube的开发，关于eccube的内容不做详细说明，此处只作为开发过程的流程。大体而言，就是安装好PHP环境，服务器环境，以及安装好数据库。
+安装过程 使用phpstudy做为集成开发环境。之前使用过xampp作为一个集成安装环境，弄了好久还是不行，后使用phpstudy；等有时间再用xampp试试。 windows10系统 先安装好phpstudy，下载地址：[https://www.xp.cn/](https://www.xp.cn/&quot;https://www.xp.cn/&quot;) 使用Apache2.4.39,Mysql5.7.26作为服务器和数据库版本。数据库管理软件使用的phpMyAdmin4.8.5作为数据库管理软件。 安装过程 新建站点，域名localhost,根目录就是网站的根目录，www下面的内容就是localhost站点 创建数据库。数据库工具选择phpMyAdmin,会进入一个web站点。 进入站点之后，选择新建数据库，根据自己的情况写名字跟排序规则。 php扩展安装(如图) ] 下载ec-cube4的源码，放在根目录下，就行。根目录见步骤1中的根目录。 进行ec-cube4安装。ec4的安装可以按照官网提供的说明 文档进行，地址：[安装文档](https://doc4.ec-cube.net/quickstart/install&quot;安装文档&quot;) 注意几个点，在这选数据库时候，选择上面自己新建的数据库，然后初始化就可以了。 备注：我按照给的官方文档，弄下来还是比较费事的，各种错误频出，大家使用的时候，应该把握一点，不要死照着教程来，知其所以依然就好&mdash;安装好mysql和服务器，而不是知其然&mdash;仅仅按照教程走一步看一步。 Ubuntu20.04系统 ubuntu系统下，没有一个安装程序，只有一个在线的安装管理平台，使用命令wget -O install.sh https://notdocker.xp.cn/install.sh &amp;&amp; sudo bash install.sh 其安装可参考：[安装过程](https://www.xp.cn/linux.html#install-show&quot;安装过程&quot;) ubuntu下面安装和windows10下面大同小异，唯一区别是，其对Linux系统的支持性不太好，会出现各种bug，版本的小版本号与windows10下稍有区别。我在安装的时候，遇见的一个问题是，phpMyadmin管理打不开，所以就使用了navicat代替。这就是之气所以然的考虑。 后记 eccube系统作为一个较为完善且庞大的系统，上手伊始是比较难顶的。我在国内的网站上，找寻相关资料十分困难，资料仅仅有那个官方的说明文档（个人觉得这文档说的比较敷衍，对新手的难度较高）。出现问题，找寻相关解决方案也几乎为0，使用google，也仅仅找到了十几条相关的内容资料。这与Java，spring boot，等拥有如烟海的解决方案大相径庭。 大家如果也有相同的开发经历，可以一起探讨学习。联系方式在网站主页（Mail||Github）。 2021-07-17 03:48:02 星期六]]></content>
+  </entry>
+  
+  <entry>
+    <title>PhpStudy遇见的问题</title>
+    <url>http://upccaishu.top/post/skills/phpstudy%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>php</tag>
+      <tag>Eccube</tag>
+    </tags>
+    <content type="html"><![CDATA[phpStudy遇见的问题
+由于项目需要学习ec-cube开发，前期使用xampp配置了好半天，分开环境是明明白白的了，但是项目仍然起步不了，后来，转到Ubuntu下进行开发，仍然问题一箩筐。后来，在项目负责人的指导下，使用phpstudy集成工具进行开发，将环境在win下安装成功。于是我考虑使用Ubuntu重新走一遍流程。
+问题描述 在安装phpstudy时候，启动apache2,发现报错如下： 解决方案 问题百度的时候，有很多方案，大概就是端口占用，但是我操作下来，还是不行。后来还找到一个问题描述，是配置文件的端口号冲突。 在本来的Ubuntu系统中，使用apt安装了一个apache2,占用了80端口，将Ubuntu系统下的apache2关掉，使用phpstudy下的集成apache环境即可。 使用service apache2 stop停止掉系统下的apache2,再使用phpstudy下的apache2启动，问题解决。## 一些命令 service apache2 start启动apache2服务 service apache2 stop停止服务 service apache2 restart重启apache2服务## 写在最后 时隔多日，再次写下博客，下次应该就得考虑服务器迁移问题了。 2021-07-16 21:34:33 星期五 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>免费GPUColab的使用</title>
+    <url>http://upccaishu.top/post/others/%E5%85%8D%E8%B4%B9gpucolab%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <categories><category>其他</category>
+    </categories>
+    <tags>
+      <tag>免费GPU</tag>
+      <tag></tag>
+    </tags>
+    <content type="html"><![CDATA[免费GPUColab的使用
+由于实验需要，所需需要GPU做服务运算。大致搜了一下，国内也有几家可以免费使用的GPU，比如百度的飞浆，Kaggle Kernel等等，但是各有不足。其中百度的GPU只能使用其自己的深度学习框架，不能使用pytorch等第三方深度学习框架。后来使用了谷歌的Colab感觉还不错。- 由于众所周知的原因，访问colab需要科学上网，所以，如果没有这个途径的，可以直接略过此文章，选用别的免费GPU。
+Colab介绍 详情介绍- https://research.google.com/colaboratory/faq.html#usage-limits 简单说一下，就是，colab虚拟机最长12小时，分配的GPU不定，且官方不提供任何说明性质的保证。大致有K80，T4，P4等，用的越少，分配好GPU的概率越大，越优先使用。 使用步骤 登录Google Driver Google Colab 支持挂载 Google Drive，方便存储文件。所以推荐直接从 Google Drive 登录。打开Google Drive 官网，使用gmail邮箱直接登陆。个人建议，代码，运行文件全部放在谷歌云盘内部，不要把文件按放进虚拟机，因为，虚拟机释放了，就啥也没了。云盘15G免费空间，一般足够用了。
+在Google Driver 添加colaboratory应用\ 云盘默认是没有Colab的，需要手动添加，然后打开使用就可以了。使用jupyter的文件方式打开，并链接虚拟主机。至于怎么在jupyter里使用命令行，在命令里面加一个!就可以了。
+打开，新建的文件夹，在其中右击空白处 &ndash;&gt; More &ndash;&gt; Connect more apps 搜索“Colaboratory”，点击图标安装。 安装完成后，右击空白处 &ndash;&gt; Google Colaboratory 打开 (也可以直接搜索谷歌colab，进入官网转到谷歌网盘) 挂载Google Drive 1 2 from google.colab import drive drive.mount(&#39;/content/drive&#39;) 按照提示，输入一个验证码操作就好了 也可以通过图形界面，直接挂载 [![colab](http://upccaishu.top:5120/images/big/192b298f18779b7c36163519b284c739.jpg &quot;colab&quot;)](http://upccaishu.top:5120/images/big/192b298f18779b7c36163519b284c739.jpg&quot;colab&quot;) 设置笔记本 默认状态下，虚拟机是CPU的，无GPU，所以，要修改虚拟机配置。
+入口修改--&gt;笔记本设置--&gt;选择GPU--&gt;保存 为了更好使用，强烈建议，使用完成之后，把GPU改回None 查看分配到的GPU型号 T4还是比较好的，算力达到了6.1，和GTX1080Ti持平。比2070慢点（我在实际实验的过程中，发现T4的计算速度，要比我本地的GTX2070快，估计是散热的原因。） 友情提示 由于Colab的不确定性，建议数据全部存在云盘里，而不是主机里。另外，建议模型可以保存，并且提供继续训练模型的参数接口，以方便实验可以接力跑。 后记 CV方向属实是需要强大的Money支持，现阶段，GPU还是太贵了，租用一个月差不多就能买个30系的显卡了。学生党属实伤不起。 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>配置nginx服务器小结</title>
+    <url>http://upccaishu.top/post/skills/%E9%85%8D%E7%BD%AEnginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B0%8F%E7%BB%93/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>nginx</tag>
+      <tag>服务器</tag>
+      <tag>Linux</tag>
+    </tags>
+    <content type="html"><![CDATA[配置nginx服务器小结
+一些常用命令 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 ps -ef | grep nginx 查看nginx安装目录 nginx -t 查看配置文件nginx.conf路径 nginx 安装目录 -c nginx.com 配置文件沐目录，参数-c指定配置文件路径，不加默认加载其安装目录的conf子目录中的nginx.conf文件 nginx -参数 Nginx 的参数包括： -c &lt;path_to_config&gt;：使用指定的配置文件而不是 conf 目录下的 nginx.conf 。 -t：测试配置文件是否正确，在运行时需要重新加载配置的时候，此命令非常重要，用来检测所修改的配置文件是否有语法错误。 -v：显示 nginx 版本号。 -V：显示 nginx 的版本号以及编译环境信息以及编译时的参数。 start nginx : 启动nginx nginx -s reload ：修改配置后重新加载生效 nginx -s reopen ：重新打开日志文件 关闭nginx： nginx -s stop : 快速停止nginx nginx -s quit ：完整有序的停止nginx 问题描述：执行 nginx -t 是OK的，然而在执行 nginx -s reload 的时候报错 nginx: [error] invalid PID number “” in “/run/nginx.pid” 解决办法 需要先执行 nginx -c /etc/nginx/nginx.conf netstat -pan | grep 80 查看端口号	## 安装配置nginx服务器 #### 安装 - 我采用的pip直接安装，大家也可以采用下载源码自行编译安装。 `pip install ngnix` 查看安装位置 pip安装 之后，有可能会出现找不到conf配置文件的问题，大家可以使用命令查看： ps -ef | grep nginx 查看ngnix安装目录- ngnix -t查看ngnix.conf路径 修改ngnix文件 我是配置ngnix的反向代理，具体的反向代理配置，可以自行百度进行解决。 反向代理的时候，注意一个坑，一个关于斜杠/的问题。 启动ngnix ngnix -t 显示nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 说明配置文件没错。 ngnix -c /etc/nginx/nginx.conf 加载配置文件。（如果不执行会报错nginx: [error] invalid PID number “” in “/run/nginx.pid”,具体原因 ，暂未知） nginx -s reload 重新载入配置生效 可能出现的问题 一个是上面提到的nginx: [error] invalid PID number “” in “/run/nginx.pid” 解决方案在上面。 另一个是映射端口被占用nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use) ,这时候可以查看一下端口具体被那些应用占用，通过netstat -pan | grep 端口号查看，并使用kill -9 端口号消灭该端口号。 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>博客评论区 Utterances插件</title>
+    <url>http://upccaishu.top/post/solved/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA-utterances%E6%8F%92%E4%BB%B6/</url>
+    <categories><category>问题解决</category>
+    </categories>
+    <tags>
+      <tag>Utterances插件</tag>
+      <tag>博客</tag>
+    </tags>
+    <content type="html"><![CDATA[博客评论区-utterances插件
+utterance插 https://utteranc.es/网址
+博客评论插件有很多，这个应该是比较好用的一个了，具体的好处，上面网址上有说明。其实，按照上面的网址很容易，操作完成。
+优点 Open source No tracking, no ads, always free No lock-in. All data stored in GitHub issues Styled with Primer, the css toolkit that powers GitHub Dark theme Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers 步骤 Step1 建立一个github仓库（具体教程自行百度，我举得程序员问题都不大） Step2 确保unttances app 被安装到仓库中，否则不能提交评论 QQ unttances app地址 https://github.com/apps/utterances点进去按照操作完成 Step3 配置好utteranc 使用 需要登录github仓库账号进行回复。 由于github issues没有楼中楼回复方式，所以评论区也无法直接进行评论回复。 但是，可以使用github issue 回复的方式，提供评论的楼中楼方式。 符号 '&gt;' 引用上面的回复。 后记 今天，既嗅到了春天的味道，也嗅到了工作开始的味道，各种工作又要全面开始了。今天修了修博客的评论区，写了几个py脚本，沉浸其中的时候，也是蛮好的。 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>蚂蚁or蜜蜂（迁移卷积神经网络）</title>
+    <url>http://upccaishu.top/post/algorithm/%E8%9A%82%E8%9A%81or%E8%9C%9C%E8%9C%82%E8%BF%81%E7%A7%BB%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>Code</tag>
+      <tag>pytorch</tag>
+      <tag>深度学习</tag>
+    </tags>
+    <content type="html"><![CDATA[蚂蚁or蜜蜂（迁移卷积神经网络）
+迁移大型卷积神经网络实验 使用数据集hymenoptera
+下载地址 hymenoptera传送门运行环境： system='Linux', node='0c6f88beb51d', release='4.19.112+', version='#1 SMP Thu Jul 23 08:00:38 PDT 2020', machine='x86_64', processor='x86_64'
+代码
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 import torch import torch.nn as nn import torch.optim as optim from torch.autograd import Variableimport torch.nn.functional as F import numpy as npimport torchvision from torchvision import datasets,models,transforms import matplotlib.pyplot as plt import time import copy import os data_dir = &#39;/content/drive/MyDrive/pytorch_learning/hymenoptera_data&#39; # 数据存储总路径 image_size = 224 #图像大小为224*224像素 # 加载过程对图像进行如下操作 # 1.随机从原始图像中切下来一块224*224大小的区域 # 2.随机水平翻转图像# 3.将图像的色彩数值标准化 train_dataset = datasets.ImageFolder(os.path.join(data_dir, &#39;train&#39;), transforms.Compose([ transforms.RandomResizedCrop(image_size), transforms.RandomHorizontalFlip(), transforms.ToTensor(), transforms.Normalize([0.485,0.456,0.406],[0.229,0.224,0.225]) ]), ) # 加载校验数据集 val_dataset = datasets.ImageFolder(os.path.join(data_dir, &#39;train&#39;), transforms.Compose([ transforms.Resize(256), transforms.CenterCrop(image_size), transforms.ToTensor(), transforms.Normalize([0.485,0.456,0.406],[0.229,0.224,0.225]) ]), ) # 创建相应数据加载器 # 读取数据中分类类别数 num_classes = len(train_dataset.classes) # 模型迁移 net = models.resnet18(pretrained=True) for param in net.parameters(): param.requires_grad = False# 预训练方式迁移num_ftrs = net.fc.in_features # ResNet18最后全连接层的输入神经元个数 net.fc = nn.Linear(num_ftrs, 2) # 拿掉ResNet18的最后两层全连接层，替换成输出单元为2的全连接层criterion = nn.CrossEntropyLoss() optimizer = optim.SGD(net.parameters(),lr=0.0001,momentum=0.9) use_cuda = torch.cuda.is_available() # 判断是否可以使用GPU进行加速 dtype = torch.cuda.FloatTensor if use_cuda else torch.FloatTensor itype = torch.cuda.FloatTensor if use_cuda else torch.FloatTensor net = net.cuda() if use_cuda else net def rightness(predictions, labels): pred = torch.max(predictions.data, 1)[1] # 对于任意一行（一个样本）的输出值的第1个维度，求最大，得到每一行的最大元素的下标 rights = pred.eq(labels.data.view_as(pred)).sum() #将下标与labels中包含的类别进行比较，并累计得到比较正确的数量 return rights, len(labels) #返回正确的数量和这一次一共比较了多少元素 if __name__==&#34;__main__&#34;: train_loader = torch.utils.data.DataLoader(train_dataset,batch_size=4,shuffle=True,num_workers=4) val_loader = torch.utils.data.DataLoader(val_dataset,batch_size=4,shuffle=True,num_workers=4) print(use_cuda) record = [] # 记录准确率等数值的容器 num_epochs =20 net.train(True) for epoch in range(num_epochs): train_rights = [] train_losses = [] for batch_idx, (data,target) in enumerate(train_loader): data, target = Variable(data), Variable(target) if use_cuda: data, target = data.cuda(),target.cuda() output = net(data) # 完成一次预测 loss= criterion(output,target) loss =loss.cpu() if use_cuda else loss optimizer.zero_grad() # 清空梯度 loss.backward() optimizer.step() right = rightness(output,target) train_rights.append(right) train_losses.append(loss.data.numpy()) if batch_idx %100 == 0: print(&#39;MyEpoch [{}/{}], Step [{}/{}], Loss: {:.4f}&#39;.format(epoch + 1, num_epochs, batch_idx, len(train_loader), loss.item())) print(&#39;时间戳&#39;, time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)) 环境对比 colab 平台 配置 ：system=&lsquo;Linu&rsquo;, node=&lsquo;0c6f88beb51&rsquo;, release=&lsquo;4.19.112+&rsquo;, version=&rsquo;#1 SMP Thu Jul 23 08:00:38 PDT 2020&rsquo;, machine=&lsquo;x86_64&rsquo;, processor=&lsquo;x86_64&rsquo; GPU显存:15843721216字节 本地机器CPU 配置：system=&lsquo;Windows&rsquo;, node=&lsquo;DESKTOP-7845150&rsquo;, release=&lsquo;10&rsquo;, version=&lsquo;10.0.19041&rsquo;, machine=&lsquo;AMD64&rsquo;, processor=&lsquo;AMD64 Family 21 Model 101 Stepping 1, AuthenticAMD&rsquo; 后记 GPU在科学计算上，真的不知道甩了CPU几条街啊。果然好设备才是生产力发展的要素。今天实验了好几个平台，百度AI只能用自己的框架，取消了对pytorch等深度学习 框架的支持，另外的，也都是比较“便宜”吧，白薅羊毛的平台，也都是有诸多限制，综合比较而言，这个calob还是不错的。 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>手写数字识别器（认识卷积神经网络）</title>
+    <url>http://upccaishu.top/post/algorithm/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%99%A8%E8%AE%A4%E8%AF%86%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>Code</tag>
+      <tag>pytorch</tag>
+      <tag>深度学习</tag>
+    </tags>
+    <content type="html"><![CDATA[手写数字识别器（认识卷积神经网络）
+毕设，如同平地起高楼，不打地基，直接盖楼，还是比较麻烦的，基础的东西还是挺重要的，这个小实验，也就是用来练练手而已，跟自己的毕设似乎有一点关联，又似乎没有一点关联。这算是新年第一次开工吧，开学之后，面临着毕设，还有毕业多种事情要做，毕设现在还是比较费脑筋的问题。
+利用MNIST数据集和pytorch框架，实现一个简单的CNN网络 data.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 import torch import torch.nn as nn from torch.autograd import Variable import torch.optim as optim import torch.nn.functional as F import torchvision.datasets as dsets import torchvision.transforms as transforms import matplotlib.pyplot as plt import numpy as np image_size = 28 #　图像总尺寸是28x28 num_classes = 10 # 标签总类数 1~10 num_epochs = 20 #　训练总周期 batch_size = 64 # 一个批次的大小，64张图片 #　加载数据集 train_dataset = dsets.MNIST(root=&#39;./root&#39;, #　文件存放路径 train=True, # 提取训练集 transform=transforms.ToTensor(), # 加载数据时，对图像做预处理 download=True) # 数据集不存在时，自动下载 test_dataset = dsets.MNIST(root=&#39;./root&#39;, #　文件存放路径 train=False, transform=transforms.ToTensor(), )# 加载数据时，对图像做预处理) # 定义数据加载器，自动将数据切分成批，顺序随机打乱 train_loader = torch.utils.data.DataLoader(dataset = train_dataset, batch_size=batch_size, shuffle=True) # 定义数据集下标 indices = range(len(test_dataset)) indices_val = indices[:5000] indices_test = indices[5000:] # 根据下标构造两个数据集的SunsetRandomSampler采样器 sampler_val = torch.utils.data.SubsetRandomSampler(indices_val nsampler_test = torch.utils.data.SubsetRandomSampler(indices_test) n# 根据两个采样器，定义加载器 validation_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False, sampler=sampler_val ) test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False, sampler=sampler_test ) # # 随便从数据集中读入一张图片 # idx = 100 # muteimg = train_dataset[idx][0].numpy() # plt.imshow(muteimg[0, ...]) # plt.show() # print(\&#34;标签是：\&#34;,train_dataset[idx][1]) ConvNet.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 import torch.nn as nn import torch.nn.functional as F import time image_size = 28 #　图像总尺寸是28x28 num_classes = 10 # 标签总类数 1~10 num_epochs = 20 #　训练总周期 batch_size = 64 # 一个批次的大小，64张图片 # 定义一个卷积神经网络，4，8为指定两个卷积层厚度 # from MINIST.data import image_size, num_classes depth = [4, 8] class ConvNet(nn.Module): # 复写构造函数 def __init__(self): print(&#39;ConvNet 起始时间&#39;, time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)) # 该函数在创建一个ConvNet对象时即net=ConvNet()时就会被调用 # 首先调用父类的构造函数 super(ConvNet, self).__init__() # 定义一个卷积层，输入通道为1，输出通道为4，窗口大小为5，padding为2\r\n self.conv1 = nn.Conv2d(1, 4, 5, padding=2) self.pool = nn.MaxPool2d(2, 2) # 定义一个池化层，一个窗口为2x2的池化运算、\r\n # 第二层卷积 输入通道为depth[0],输入通道为depth[1],窗口为5,padding为2\r\n self.conv2 = nn.Conv2d(depth[0], depth[1], 5, padding=2) # 一个线性连接层，输入尺寸为最后一层立方体的线性平铺 输出层512个节点\r\n self.fc1 = nn.Linear(image_size // 4 * image_size // 4 * depth[1], 512) self.fc2 = nn.Linear(512, num_classes) # 最后一层线性分类单元输入为512，，输出为要做分类的类别数\r\n\r\n def forward(self, x): # 该函数完成神经网络真正的前向运算，在这里把各个组件进行实际的拼装\r\n # x的尺寸 (batch_size,image_channels,image_width,image_height)\r\n x = self.conv1(x) # 第一层卷积\r\n x = F.relu(x) # 激活函数用ReLU，防止过拟合\r\n # 此时x的尺寸 (batch_size,num_filters,image_width,image_height)\r\n\r\n x = self.pool(x) # 第二层是池化，将图片变小\r\n # x尺寸 (batch_size,depth[0],image_width/2,image_height/2)\r\n\r\n x = self.conv2(x) # 第三层又是卷积，窗口为5，输入输出通道分别为depth[0]=4,depth[1]=8\r\n x = F.relu(x) # 非线性函数\r\n # x尺寸 (batch_size,depth[1],image_width/2,image_height/2)\r\n\r\n x = self.pool(x) # 第四层是池化，将图片缩小为原来的1/4\r\n # x尺寸 (batch_size,depth[1],image_width/4,image_height/4)\r\n\r\n # 将立体的特征图tensor压成一维向量\r\n x = x.view(-1, image_size // 4 * image_size // 4 * depth[1]) # 该函数将x压成一维向量\r\n # x尺寸 (batch_size,image_size//4*image_size//4*depth[1])\r\n\r\n x = F.relu(self.fc1(x)) # 第五层为全连接，ReLUctant激活函数\r\n # x的尺寸，(batch_size,512)\r\n\r\n # 以0.5的概率对这一层进行dropout操作，防止过拟合\r\n x = F.dropout(x, training=self.training) x = self.fc2(x) # 全连接\r\n # x的尺寸(batch_size,num_classes)\r\n\r\n # 输出层为log_softmax,即概率对数值log(p(x)),采用这个函数，可以使得后面交叉熵计算更快\r\n x = F.log_softmax(x, dim=1) return x def retrieve_features(self, x): # 该函数用于提取网络的特征图，返回feature_map1,feature_map2为前两层卷积层的特征图\r\n feature_map1 = F.relu(self.conv1(x)) # 完成第一次卷积\r\n x = self.pool(feature_map1) # 完成第一次池化\r\n feature_map2 = F.relu(self.conv2(x)) return (feature_map1, feature_map2) init.py 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 import torch from torch.autograd import Variable import time import torch.nn as nn import torch.optim as optim import matplotlib.pyplot as plt from MINIST.data import num_epochs, train_loader, validation_loader, test_loader from MINIST.convNet import ConvNet print(&#34;加载完数据\&#34;) net = ConvNet() criterion = nn.CrossEntropyLoss() # Loss 函数定义，交叉熵 optimizer = optim.SGD(net.parameters(),lr=0.001,momentum=0.9) # 定义优化器，普通的梯度下降算法 record = [] # 记录准确率等数值容器\r\nweights = [] # 每若干步就记录一次卷积核 def rightness(predictions, labels): pred = torch.max(predictions.data, 1)[1] # 对于任意一行（一个样本）的输出值的第1个维度，求最大，得到每一行的最大元素的下标\r\n rights = pred.eq(labels.data.view_as(pred)).sum() #将下标与labels中包含的类别进行比较，并累计得到比较正确的数量\r\n return rights, len(labels) #返回正确的数量和这一次一共比较了多少元素\r\n\r\n# 开始循环训练\r\n print(&#39;起始时间\&#39;,time.strftime(\&#34;%Y-%m-%d %H:%M:%S\&#34;)) for epoch in range(num_epochs): train_rights = [] # 记录训练数据集准确率的容器\r\n for batch_idx, (data,target) in enumerate(train_loader): # 将Tensor转化为Var，data为一批图像，target为一批标签\r\n data,target = Variable(data),Variable(target)\r\n # 给网络模型做标记，标志着在训练集上训练\r\n # 这种区分为了打开关闭net的training标志，从而决定是否运行dropout\r\n net.train() output = net(data) # 神经网络完成一次前馈计算过程，得到预测输出output\r\n loss = criterion(output,target) # 将output与target相比，计算误差\r\n optimizer.zero_grad() # 清空梯度信息\r\n loss.backward() # 反向传播\r\n optimizer.step() # 一步随机梯度下降算法\r\n right = rightness(output,target) # 计算准确率所需数值，返回值为（正样本样例数，总样本数）\r\n train_rights.append(right) # 将计算结果装到列表容器train_rights中\r\n\r\n if batch_idx % 100 == 0: # 每间隔100个batch执行一次打印操作\r\n net.eval() # 给网络模型做标记，标志着在训练集上训练\r\n val_rights = [] # 记录校验数据集准确率的容器\r\n print(&#39;MyEpoch [{}/{}], Step [{}/{}], Loss: {:.4f}&#39;.format(epoch + 1, num_epochs, 100, len(train_loader), loss.item())) print(&#39;当前时间\&#39;, time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)) # 开始在校验集上做循环，季孙校验集准确度\r\n for (data,target) in validation_loader: data,target = Variable(data),Variable(target) output = net(data) right = rightness(output,target) val_rights.append(right) # 分别计算目前已经计算过的测试集以及全部校验集上模型的表现：分类准确率\r\n # train_r 为一个二元组，分别记录所有训练集上分类正确的数量和该集合中总的样本数\r\n train_r = (sum([tup[0] for tup in train_rights]),sum(tup[1] for tup in train_rights)) val_r = (sum([tup[0] for tup in val_rights]),sum(tup[1] for tup in val_rights)) record.append((100-100.*train_r[0]/train_r[1],100-100.*val_r[0]/val_r[1])) weights.append([net.conv1.weight.data.clone(),net.conv1.bias.data.clone(),net.conv2.weight.data.clone(),net.conv2.bias.data.clone()]) print(&#39;训练结束时间&#39;,time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)) # 在测试集上分批运行，并计算总的正确率 net.eval() vals = [] # 对测试集进行循环\r\n for data, target in test_loader: with torch.no_grad() data, target = Variable(data),Variable(target) output = net(data) # 将特征数据输入网络，得到分类输出 val = rightness(output, target) vals.append(val) # 计算准确率 rights = (sum([tup[0] for tup in vals]),sum([tup[1] for tup in vals])) right_rate = 1.0*rights[0] / rights[1] print(&#34;准确率&#34;,right_rate)print(&#39;最后时间&#39;,time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)) plt.figure(figsize=(10, 7) plt.plot(record) # record 记录了每一个打印周期的训练集和校验集上的准确 plt.xlabel(&#34;Step&#34;) nplt.ylabel(&#34;Erro rate&#34;) plt.show() print&#34;全部结束&#34;) ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Java后端开发学习之路</title>
+    <url>http://upccaishu.top/post/skills/java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>JAVA</tag>
+      <tag>后端</tag>
+    </tags>
+    <content type="html"><![CDATA[Java后端开发学习之路
+参考up主CodeSheep 绘制的Java后端学习之路，供自己参考学习参考up主CodeSheep 绘制的Java后端学习之路，供自己参考学习
+Java后端学习开发 -（仅供个人参考学习)&mdash;&mdash;&mdash;&mdash; 图片不清晰可以参考：[传送](https://www.processon.com/embed/6020b9ece0b34d208a6af471&quot;传送&quot;) 来源参考:up主 [CodeSheep](https://b23.tv/40dEf9&quot;CodeSheep&quot;) ]]></content>
+  </entry>
+  
+  <entry>
+    <title>我的2020</title>
+    <url>http://upccaishu.top/post/others/%E6%88%91%E7%9A%842020/</url>
+    <categories><category>其他</category>
+    </categories>
+    <tags>
+      <tag>生活</tag>
+    </tags>
+    <content type="html"><![CDATA[我的2020 我的2020，期望我的2021~~~
+我的2020没有那么精彩 ** 关于考研：** 2020开局便是一个考验，疫情的原因，整个上半年都是在家上课复习，也导致了考研进度的极大不顺利。本已升入大三，考研还是就业也是迫在眉睫。虽然很大程度上，偏向于就业，但是也想着试试考研。但是考研进度一直都是三天打鱼两天晒网的。 九月开学之后，也一直在复习，把八分精力放在考研上，二分放在找工作上。 开学之后，由于保研政策不定，可以说是过得相当煎熬。又在学校的保研辅导员面试过程中，接连失利最终无缘于保研辅导员。虽然之后有着各种心理预期，或者说，做了最坏的打算，虽然如此，说内心毫无波澜一点都不失落是不可能的。除此之外，各种变化已经是完全打乱了我的考研计划，考研实质也是名存实亡。 ** 关于工作：** 其实在秋招伊始，就已经开始着手准备，但是，始终是没有勇气去投出那一份简历。最后，终于是迈出了第一步，本以为会跟网上说的那样，如泥牛入海，毫无音信。索性，就一门心思扑在考研准备上面。没成想，没几天就收到了第一份面试邀约，面试当天其实是比较紧张的。 一方面，自己也不太想随随便便找一个公司，就签掉三方协议，另一方面，自己也怕因为过分准备考研，而耽误了考研计划。始终摇摆不定，也过于纠结。那时候也尚未知道自己真的想要追求点什么。 我的2020也没有那么糟 疫情在家期间，都是待在家里，到四月份开始逐渐解封之后，就获取了四处溜达的机会，但是又不能到处跑，所以在家，就不停地跟发小烧烤烧烤火锅火锅，开着车四处跑，确实也是快乐的不行，虽然，那个时候也在考虑会耽误复习，但是也是吃的十分快乐。那个时候，也报了一个想法，就是，考不上，那就工作吧，毕竟互联网行业的就业情况还是相当的好的，就目前的普通就业来讲。 开学之后，先是就业，参加了三场招聘会，结果倒是比意料的要好，HR问的问题都还是较为简单的，最终拿到了三家公司的offer，开出的薪资待遇，也处于行业的中等水准吧，看着应该是高于工作地的平均工资的。当时我的辅导员老师也给过相应的意见和建议，看一个工资的水准，要结合各地的经济发展水准相结合的，不能但看数字的大小。 在准备保研的过程，也是相当的煎熬的，但是好在，有着诸多老师还有师兄师姐的帮忙，也是打心底感激的，准备辅导员面试的时候，感谢师兄师姐给提供的复习内容资料，也感谢老师的指导，虽然，最终的面试没有通过。但是好在，准备的过程是美好的，也有一些些的小确幸吧，也有了一点点的额外收获和意外之喜。 在挣扎了几天之后，保研政策下来了，自己也处于一个边缘，也是甚是纠结，但是最后的结果还是好的，等一切尘埃落定之后，也便开始了短暂的放松。随即便又开始了新一轮的劳作。 AA## 该吃吃该喝喝，遇事别往心里搁 AA- 一切尘埃落定之后，还是回到了之前的状态。虽然过程是难顶的，但是结果却是不乏快乐。 现在的节奏，无非是吃饭睡觉打豆豆。当然，言归正转，现在就是负责这，负责那，然后各种活动事情轮番上阵。虽然事多会烦，但是吃一顿就好了嘛，所以，就开启了各种外出吃火锅，吃烤鱼的生活，来看个图，哈哈哈哈 ![xPQ8PK.jpg](https://s1.ax1x.com/2022/09/20/xPQ8PK.jpg&ndash; 当然，有多少的好吃的，就意味着有多少的烦恼，因为烦恼了，所以要把快乐吃回来。当然，饭，一个人吃必然也是不快乐的O(∩_∩)O哈哈~ &ndash; AA&ndash; 最后，这个评论区，已经失常了好久了， 还是希望有个正常的评论区。哈哈哈哈哈 last but not least ** 考研即将开始了，祝朋友们都可以发挥超常，顺利上岸！**
+本科阶段学的那些理论课，是真的有用的， 1 2 3 4 5 6 7 8 9 10 11 12 private var count = 0 fun setCount(count : Int) { this.count = 0 if(count == 0) { hide() } else { show() } } fun show() {} fun hide() {} 比如上面这个违反了哪个设计原则？
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>在服务器上部署Jupyter</title>
+    <url>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</url>
+    <categories><category>问题解决</category>
+    </categories>
+    <tags>
+      <tag>jupyter</tag>
+      <tag>Linux</tag>
+    </tags>
+    <content type="html"><![CDATA[在服务器上部署Jupyter 服务器安装jupyter 今天手边没有自己的电脑，但是想要编程，虽然有着很多的在线编程网站，但是在写python代码的时候，一些库没有，很恼火，但是又不能乱搞别人的电脑，就想起了搞一搞jupyter。目前看起来效果还不错。
+前言 Jupyter Notebook是一个交互式笔记本，可以用来写python脚本或者markdown语言，部署在浏览器之后，可以通过浏览器在线编程，实时运行python脚本。 安装流程 环境：python3+Centos8+ipython 我是通过下载Anaconda顺便安装了jupyter。大家也可以直接通过yum、apt-get等包管理工具进行下载安装。安装之前，要确保平台已经安装好了python3环境。 安装Anaconda 获取安装包 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.0.1-Linux-x86_64.sh 安装命令 sh Anaconda3-5.0.1-Linux-x86_64.sh 一路yes就可以了 配置环境变量，有多种方式，我用的是 vi /etc/profile export PATH=~/anaconda3/bin:$PATH 更新环境变量 source /etc/profile 其它配置方式：https://www.linuxprobe.com/environment-variable-configuration.html 检查版本conda -V [] 如果出现图中效果，证明安装成功
+配置jupyter 生成配置文件jupyter notebook --generate-config 路径在：~/.jupyter/jupyter_notebook_config.py 进入python环境，如图 [] 注意复制好里面的out[2]部分，后面配置文件要用。 编辑jupyter配置文件 vi /root/.jupyter/jupyter_notebook_config.py 修改以下条目【注意去掉#】 1 2 3 4 5 6 7 c.NotebookApp.ip = \&#39;*\&#39; # 设置Jupyter监听的ip地址，修改为*表示监听所有ip地址 c.NotebookApp.password = u\&#39;&#39; # 将该内容替换为上一步设置密码时生成的sha1值AAc.NotebookApp.open_browser = False # 禁止启动时自动打开浏览器(本来在桌面平台上安装使用时可以开启，在服务器上不需要此设置，因此设置为False)AAc.NotebookApp.port = 1024 # 指定访问的端口，按照自己喜好设定，默认是8888，注意不要和已用端口冲突AAc.NotebookApp.notebook_dir = \&#39;/Your/Directory\&#39; # 设置运行时的目录，因为以root身份运行时默认会在/root目录下，因此最好修改成自己喜欢的目录，例如\&#39;/home/jupyter\&#39;AA```AAAA- 上步骤中，运行目录必须已经存在，否则会启动失败，自己手动创建即可。 启动 1 jupyter notebook --no-browser --allow-root 我这里加入&ndash;allow-root是因为我是以root身份运行的，如果不添加就无法启动，非root用户启动时可以不加 接下来打开浏览器就可以看到了&quot;http://ip：端口&quot; ]]></content>
+  </entry>
+  
+  <entry>
+    <title>吴恩达深度学习课程（计算图和pytorch动态计算梯度）</title>
+    <url>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9B%BE%E5%92%8Cpytorch%E5%8A%A8%E6%80%81%E8%AE%A1%E7%AE%97%E6%A2%AF%E5%BA%A6/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>深度学习入门</tag>
+      <tag>逻辑回归</tag>
+      <tag>pytorch</tag>
+    </tags>
+    <content type="html"><![CDATA[吴恩达深度学习课程（计算图和pytorch动态计算梯度） 计算图以及pytoch动态计算图代码构建
+计算图 初次接触计算图，还以为计算图是什么高深的东西，其就是表述了一个计算过程，是用来描述运算的有向无环图【图中自左向右计算，自有向左是一个反向传播过程】
+上图表示的计算过程就是 J=3*(a+b*c) pytorch中的计算图自动构建 pytorch中的计算图dynamic computation graph(DCG)——即动态计算图 下图为对上图中的计算图的pytorch代码实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 import torch from torch.autograd import Variable AAAdef DCG(): a = Variable(torch.Tensor([5]), requires_grad=True) # requires_grad 表示是否对其求梯度，默认是False b = Variable(torch.Tensor([3]), requires_grad=True) c = Variable(torch.Tensor([2]), requires_grad=True) u = b*c v = a+u J = 3*v J.backward() # 进行反向传播，自动构建计算图 print(a.grad) print(b.grad) print(c.grad) print(u.grad_fn) print(v.grad_fn) print(J.grad_fn) - 输出结果 tensor([3.]) tensor([6.]) tensor([9.]) &lt;MulBackward0 object at 0x0000012FF265C208&gt; &lt;AddBackward0 object at 0x0000012FF265C208&gt; &lt;MulBackward0 object at 0x0000012FF265C208&gt; pytorch中的一些参数说明 backward：当调用backward函数时，只有requires_grad为true以及is_leaf为true的节点才会被计算梯度，即grad属性才会被赋予值。
+data: 变量中存储的值，如x中存储着1，y中存储着2，z中存储着3
+requires_grad：该变量有两个值，True 或者 False，如果为True，则加入到反向传播图中参与计算。
+grad：该属性存储着相关的梯度值。当requires_grad为False时，该属性为None。即使requires_grad为True，也必须在调用其他节点的backward()之后，该变量的grad才会保存相关的梯度值。否则为None
+grad_fn：表示用于计算梯度的函数。返回值例子：&lt;AddBackward0 object at 0x0000012FF265C208&gt;
+is_leaf：为True或者Falsejiedain，表示该节点是否为叶子节点。【只有是叶子结点才会存有梯度信息，否则grad为None】
+retain_grad ：执行该方法，可以保存计算过程中非叶子节点的梯度信息。 AAA
+后记 今天看到一句话，感觉还不错：观人与酒后，观人于忽略，观人于临财临富。 现在突然想继续保持对网络安全的热枕，无论是社会工程还是纯技术。 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>两数相加</title>
+    <url>http://upccaishu.top/post/algorithm/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
+    <categories><category></category>
+    </categories>
+    <tags>
+      <tag></tag>
+      <tag></tag>
+    </tags>
+    <content type="html"><![CDATA[两数相加&ndash;leetcode刷题
+两数相加&rsquo;, &lsquo;来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/add-two-numbers
+题目描述 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+AAA您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+用例 输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4) 输出：7 -&gt; 0 -&gt; 8 原因：342 + 465 = 807 代码（Java） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; * ListNode(int x) { val = x; } * } */ class Solution { public ListNode addTwoNumbers(ListNode l1, ListNode l2) { ListNode result=new ListNode(-1); ListNode re=result; int sum=0,sum1=0,c=0; while(l1!=null||l2!=null||c!=0){ int a=0,b=0; a=(l1!=null)?l1.val:0; b=(l2!=null)?l2.val:0; result.next=new ListNode((a+b+c)%10); c=(a+b+c)/10; result=result.next; if(l1!=null){ l1=l1.next; } if(l2!=null){ l2=l2.next; } } return re.next; } } ]]></content>
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习摘记（一）</title>
+    <url>http://upccaishu.top/post/skills/pytorch%E5%AD%A6%E4%B9%A0%E6%91%98%E8%AE%B0%E4%B8%80/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>pytorch</tag>
+      <tag>深度学习</tag>
+    </tags>
+    <content type="html"><![CDATA[pytorch 学习的入门，一些基本的概念名词
+这几天除了看吴恩达的视频，也找了几本书看一下。
+深度学习网络架构 前馈型神经网络 卷积神经网络（CNN） 循环神经网络（RNN） pytorch 三特性 与python完美结合 张量计算 动态计算图 张量【tensor】 【张量即为pytorch的计算单元】 一阶张量及一维数组，通常叫做向量[vector] 二阶张量即二维数组，通常叫做矩阵[matrix] 尺寸【size】 即一个张量每个维度的大小称为张量在这个维度上的尺寸 pytorch里的计算图 接触tensorflow等机器学习框架的朋友们对计算图的概念应该不陌生。pytorch与这些框架不一样的地方，pytorch可以通过自动微分变量自动实现计算图的构建。只要采用了自动微分变量，就可以利用.backward()自动进行反向传播。可以通过x.gard方法查看梯度信息 自动微分变量有三个属性data、grad、grad_fn。 注：自动微分变量，在0.4及之后的版本中，就等同于张量。且pytorch规定，只有计算图的叶子节点才可以通过.backward()获得梯度信息。 数据的分批处理 设置batch_size,也就是把所有的训练集划分成一个批次大小的数据集，在每个训练周期内给神经网络输入一批数据，从而减少训练所需要的时间。 后记 都说CV方向的人都喜欢造词语，显得高大上，诚然，晦涩的词语会显得高大上，但是实际上没啥作用，只要理解了其实质，用A还是用B都无所谓了。（当然，有了标准化的表述，还是用术语名词吧） ]]></content>
+  </entry>
+  
+  <entry>
+    <title>图床</title>
+    <url>http://upccaishu.top/post/others/%E5%9B%BE%E5%BA%8A/</url>
+    <categories><category>其他</category>
+    </categories>
+    <tags>
+      <tag>荔枝图床</tag>
+      <tag>lychee-docker</tag>
+    </tags>
+    <content type="html"><![CDATA[图床&mdash;&ndash;lychee-docker
+图床Q博客肯定少不了图床，前几篇文章用过sm.ms等图床，但是无可避免一个问题，就是加载慢。处于文件安全的问题，还是搭建一个自己的图床比较好。当我今天晚上修bug的时候，更是体会到，自己的才是靠谱的的呀。今天不知道网络抽什么风，CDN貌似坏了，本以为是提供CDN服务的网站炸了，结果到头来时自己的有线网络出了问题。【我觉得运营商得背锅】言归正传，下面开始用轮子搭建自己的图床。Q 图床搭建流程Q 先上传送门[github](https://github.com/kdelfour/lychee-docker&quot;github&quot;)Q本着能用轮子，绝不造轮子的心态，找了个lychee-docker，下面记录一下过程。Q
+运行环境：centos8 阿里云服务器Q docker安装 安装docker yum install docker
+启动douker systemctl start docker
+设置docker开机自启systemctl enable docker
+查看状态systemctl status docker 如果显示active（running）说明启动成功。
+设置lychee-docker 拉取镜像docker image pull kdelfour/lychee-docker
+查看已有镜像 `docker image ls'
+如图显示，表示成功 启动镜像docker run -it -d -p 5120:80 kdelfour/lychee-docker
+查看容器docker container ls 访问 http：//域名（或ip）:5120（端口号）Q#### lychee里的操作Q-访问之后，会看到一个界面 []
+Database Host 、Data Name 和 Table predix 是选填，username和password都是lychee，之后点击connect。
+点击connect会出现下图 新建一个用户名和密码，这是之后登录图床需要的。
+创建一个ablum，可以上传照片了。
+重新启动图床相关Q- 了解docker的同学，可以很轻松地解决这个问题。可以忽略。 启动docker之后，启动对应的container容器即可，不要重新启动image，否则，就是重新开一个相册了。 查看所有容器docker container ls -a 启动容器docker start container-id 或者`docker start container-name' ]]></content>
+  </entry>
+  
+  <entry>
+    <title>吴恩达深度学习课程 逻辑回归中的梯度下降和代价函数</title>
+    <url>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%92%8C%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>深度学习入门</tag>
+      <tag>逻辑回归</tag>
+    </tags>
+    <content type="html"><![CDATA[吴恩达深度学习课程-逻辑回归中的梯度下降和代价函数
+在上一篇笔记中，简单记录了逻辑回归和逻辑回归中的梯度下降，这里对上面的梯度下降进行一个详细的解释说明。
+梯度下降 ] 找到一个合适的w和b的值，使得代价函数 J(w,b)最小。
+权值的更新 learning rate 学习率，决定了下降的步伐。w更新后的值。 多样本情况下的权值更新 一般是选择0作为初始值，对样本进行一个参数的迭代更新。这张图里的左半部分是为矢量化的逻辑算法，右边为使用python的numpy进行矢量化计算的处理逻辑。【大量重复数据计算情况下，矢量计算的速度要比循环快的多，无论是在CPU还是GPU上】
+逻辑回归中为什么选择上述损失函数 上面直接给了损失函数L和代价函数J，下面记录一下，为什么这么选择
+损失函数 代价函数 极大似然估计先来个传送门吧[极大似然估计介绍](https://www.zhihu.com/question/24124998&quot;极大似然估计介绍&quot;) 【代价函数这个地方，用到了统计学方法中的极大似然估计，关于这个地方，等我再去翻一翻统计学方法这本书再说把。虽然上了这门课，但是着实是没听懂这个数学推导过程】QQQ#### 后记Q今天看了老师的视频，觉得真的是通俗易懂，比单纯看课本要好得多【当然，可能只针对我来说，我可能不适合看书】。但是看了视频，里面一些内容还是比较模糊，比如计算图这个东西，等明天再来吧。向量化，之前觉得不好懂不好写，但是真的了解之后，才会发现向量化的魅力所在啊。 今天还看到一句话，感觉很不错，记录一下：“虽不能至，心向往之”。'
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>吴恩达深度学习课程 逻辑回归部分</title>
+    <url>http://upccaishu.top/post/algorithm/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E9%83%A8%E5%88%86/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>深度学习入门</tag>
+      <tag>逻辑回归</tag>
+    </tags>
+    <content type="html"><![CDATA[吴恩达深度学习课程小记
+一些标记符号 由于目前这个博客编辑器对于数学符号支持不是太好，索性直接上图
+逻辑回归部分 L(y-hat,y) 损失函数 截图里面，可以使用平方差模型作为损失函数，但是会出现两个问题，就是if y=1 和y=0 部分 【会产生非凸优化函数的问题】，故选择设定函数（方框标注的L函数）作为损失函数
+J（w,b）代价函数 在优化逻辑回归函数时，取w,b最优，使得代价函数最小。
+后记部分 昨天抽了个时间，把博客问题处理掉，今天就用来记录学习的一些内容吧。 之前开开组会，都是迷迷糊糊的，什么ReLU,simode函数，什么反向传播，正向传播，都是似懂非懂迷迷糊糊，之前准备上课讲述SVM代码，结果看了半个月，论文都还没找，一个反向传播，问师兄，我也没怎么明白，大致就是参数更新过程。 框架的使用，确实方便了开发，但是对于个人的发展总归还是不利的，所以，还是听从师兄的建议，从头开始，先把经典基础理论课听完！ 上面的内容，可能有我听得不到位的地方，甚至是我理解有误的地方，所以，文章仅供参考。仅作为个人学习成长记录之用吧。看看什么时候能淦完这个大课程！'
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>ECS实例重启一些用到的命令</title>
+    <url>http://upccaishu.top/post/skills/ecs%E5%AE%9E%E4%BE%8B%E9%87%8D%E5%90%AF%E4%B8%80%E4%BA%9B%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <categories><category>技术积累</category>
+    </categories>
+    <tags>
+      <tag>Linux</tag>
+      <tag>数据库</tag>
+    </tags>
+    <content type="html"><![CDATA[ECS实例重启一些用到的命令
+数据库（8.0） 查看状态service mysqld status 启动数据库service mysqld start 关闭数据库service mysqld stop 启动jar包服务 后台运行jar包服务nohup java -jar XXX.jar &amp; 关闭jar包服务 查看服务端口号ps -ef |grep XXX.jar 关掉服务进程kill 9 端口号 记录服务器重启和服务重启
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>博客搭建初探</title>
+    <url>http://upccaishu.top/post/others/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%88%9D%E6%8E%A2/</url>
+    <categories><category>其它</category>
+    </categories>
+    <tags>
+      <tag>博客搭建</tag>
+    </tags>
+    <content type="html"><![CDATA[搭建第一版的博客内容
+博客搭建 前端页面 本博客搭建参照哔哩哔哩课程，网址如下，其中也参考了很多的博客和github资源，前端，基本照搬视频讲课内容。先整上，后面再一点点补充自己的东西和特色。舍友就说我，欠一个动力。https://www.bilibili.com/video/BV1nE411r7TF?from=search&amp;seid=9197797459469960327 看板娘参考：https://github.com/stevenjoezhang/live2d-widget
+后端 采用Spring Boot + mybatis（采用xml配置的方式进行数据库操作，后面可以考虑换成SpringDataJpa，全部换成spring全家桶） 使用了lombok插件，简化部分代码（使用lombok优势劣势都有，自己斟酌了）
+后端登录密码使用MD5方式单项加密存储 部署 腾讯云+Linux+tomcat（springboot自带） 安全组放开相关的端口，比如80，3306，22等 使用IDEA进行打包，打包为jar包，用ftp软件或者命令，将打包的jar包上传到任意目录。 运行命令nohup java -jar blog-0.0.1-SNAPSHOT.jar &amp; （使用这种方式运行的程序日志会输出到当前目录下的nohup.out文件，使用ctrl+c中断或者关闭窗口都不会中断程序的执行） 可以使用ps命令查看当前的进程
+这是本博客完成之后，第一个文章，写一个自己的博客，想法已经萌生了很久很久，但是之前要准备考研，后来稀里糊涂保研了，所以，抽个时间，搭一个简易博客。
 ]]></content>
   </entry>
   
@@ -33,17 +393,6 @@ Hugo是现今世界上最快的网站建设框架，也是最流行的开源静
 信息块 支持 default，info，success，warning，danger 等五种不同效果的展示，语法参考如下：
 1 2 3 4 {{&lt; note [class] [no-icon] &gt;}} 书写表达的信息 支持 Markdown 语法 {{&lt; /note &gt;}} 实际效果：
 Default Header without icon Welcome to Hugo NexT!Default Header Welcome to Hugo NexT!Info Header Welcome to Hugo NexT!Success Header Welcome to Hugo NexT!Warning Header Welcome to Hugo NexT!Danger Header Welcome to Hugo NexT!]]></content>
-  </entry>
-  
-  <entry>
-    <title>关于 我</title>
-    <url>http://upccaishu.top/about.html</url>
-    <categories>
-    </categories>
-    <tags>
-    </tags>
-    <content type="html"><![CDATA[一名在校生，时常分享Coding及炼丹生活。
-我们的愿景 ]]></content>
   </entry>
   
   <entry>
@@ -108,6 +457,21 @@ Xn + Yn = Zn
 比特作为信息论中的信息单位，也被称为 shannon ，以信息论领域的创始人 Claude shannon 的名字命名。
 参考：
 来自 Mainroad 主题的 Basic Elements内容 ]]></content>
+  </entry>
+  
+  <entry>
+    <title>建站一些命令！</title>
+    <url>http://upccaishu.top/post/pre/hello-world.html</url>
+    <categories><category>hugo说明</category>
+    </categories>
+    <tags>
+      <tag>Hugo</tag>
+      <tag>开始</tag>
+    </tags>
+    <content type="html"><![CDATA[ “使用 weight 关键字置顶文章。”
+Hugo是现今世界上最快的网站建设框架，也是最流行的开源静态站点生成器之一。 凭借其惊人的速度和灵活性，Hugo 让建设网站再次变得有趣起来。
+快速开始 发表新文章 1 $ hugo server --buildDrafts 更多信息：内容格式启动服务以实时预览的方式 1 $ hugo server 启动服务 1 $ hugo server 更多信息：Hugo 服务命令行生成静态文件 为了部署到线上，需要将 Markdown 文件打包成 HTML 文件。打包命令如下，hugo-theme-next 是主题名：(命令必须在网站的根目录下执行) 1 $ hugo -t hugo-theme-next 1 $ hugo --theme=hyde hugo-theme-next 更多信息：Hugo 建站部署到服务器 $ hugo deploy 更多信息：Hugo 发布祝你好运，相信你会喜欢上 Hugo 建站的旅程！
+]]></content>
   </entry>
   
   <entry>

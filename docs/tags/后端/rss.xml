@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>后端 on 菜树的Blog</title>
+    <link>http://upccaishu.top/tags/%E5%90%8E%E7%AB%AF/</link>
+    <description>Recent content in 后端 on 菜树的Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 08 Feb 2021 16:55:12 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/%E5%90%8E%E7%AB%AF/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java后端开发学习之路</title>
+      <link>http://upccaishu.top/post/skills/java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</link>
+      <pubDate>Mon, 08 Feb 2021 16:55:12 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</guid>
+      <description>&lt;p&gt;Java后端开发学习之路&lt;/p&gt;
+&lt;p&gt;参考up主CodeSheep 绘制的Java后端学习之路，供自己参考学习参考up主CodeSheep 绘制的Java后端学习之路，供自己参考学习&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 菜树的Blog</title>
+    <link>http://upccaishu.top/tags/linux/</link>
+    <description>Recent content in Linux on 菜树的Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 18 Jul 2021 18:28:39 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/linux/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu20.04下修改apache2默认网站路径</title>
+      <link>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sun, 18 Jul 2021 18:28:39 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/ubuntu20.04%E4%B8%8B%E4%BF%AE%E6%94%B9apache2%E9%BB%98%E8%AE%A4%E7%BD%91%E7%AB%99%E8%B7%AF%E5%BE%84/</guid>
+      <description>&lt;p&gt;Ubuntu20.04下修改apache2默认网站路径&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>配置nginx服务器小结</title>
+      <link>http://upccaishu.top/post/skills/%E9%85%8D%E7%BD%AEnginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Mon, 29 Mar 2021 17:58:51 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/%E9%85%8D%E7%BD%AEnginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B0%8F%E7%BB%93/</guid>
+      <description>&lt;p&gt;配置nginx服务器小结&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在服务器上部署Jupyter</title>
+      <link>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</link>
+      <pubDate>Fri, 04 Dec 2020 16:32:00 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/solved/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter/</guid>
+      <description>&lt;p&gt;在服务器上部署Jupyter
+服务器安装jupyter
+今天手边没有自己的电脑，但是想要编程，虽然有着很多的在线编程网站，但是在写python代码的时候，一些库没有，很恼火，但是又不能乱搞别人的电脑，就想起了搞一搞jupyter。目前看起来效果还不错。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ECS实例重启一些用到的命令</title>
+      <link>http://upccaishu.top/post/skills/ecs%E5%AE%9E%E4%BE%8B%E9%87%8D%E5%90%AF%E4%B8%80%E4%BA%9B%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Wed, 21 Oct 2020 14:55:43 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/skills/ecs%E5%AE%9E%E4%BE%8B%E9%87%8D%E5%90%AF%E4%B8%80%E4%BA%9B%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;p&gt;ECS实例重启一些用到的命令&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

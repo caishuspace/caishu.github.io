@@ -2,13 +2,26 @@
 # Friend's links
 
 - FLinksTitle: 友情链接 
-  FLinksDesc: 自己收藏的一些站点
+  FLinksDesc: 自己朋友的一些站点
   FLinksList:
     - name: 归零幻想
       desc: 归零幻想的博客
-      avatar: https://ntutn.top//favicon-32x32.png
+      avatar: https://ntutn.top//favicon.png
       link: https://ntutn.top/
+    - name: XYX
+      desc: XYX博客
+      avatar: https://ntutn.top//favicon-32x32.png
+      link: https://xyx6.top/
+    - name: ruiOvO
+      desc: ruiOvO的博客 
+      avatar:
+      link: https://www.ruiovo.top/
+    - name: lg
+      desc: lg的博客 
+      avatar:
+      link: https://www.cnblogs.com/lglh/
 
-
-
+- FLinksTitle: 友情链接 
+  FLinksDesc: 收藏的CV博主
+  FLinksList:
     

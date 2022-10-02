@@ -6,7 +6,25 @@
     <description>Recent content in Tags on 菜树的Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Aug 2021 18:53:16 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Oct 2022 11:39:52 +0800</lastBuildDate><atom:link href="http://upccaishu.top/tags/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GAN</title>
+      <link>http://upccaishu.top/tags/gan/</link>
+      <pubDate>Sun, 02 Oct 2022 11:39:52 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/tags/gan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GAN损失函数</title>
+      <link>http://upccaishu.top/tags/gan%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 02 Oct 2022 11:39:52 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/tags/gan%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Eccube</title>
       <link>http://upccaishu.top/tags/eccube/</link>

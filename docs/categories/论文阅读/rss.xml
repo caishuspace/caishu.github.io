@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>论文阅读 on 菜树的Blog</title>
+    <link>http://upccaishu.top/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
+    <description>Recent content in 论文阅读 on 菜树的Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 02 Oct 2022 11:39:52 +0800</lastBuildDate><atom:link href="http://upccaishu.top/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GANloss</title>
+      <link>http://upccaishu.top/post/paper/ganloss/</link>
+      <pubDate>Sun, 02 Oct 2022 11:39:52 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/paper/ganloss/</guid>
+      <description>&lt;p&gt;GANloss&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原文链接：http://www.twistedwg.com/2018/10/05/GAN_loss_summary.html&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

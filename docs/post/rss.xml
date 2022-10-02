@@ -6,13 +6,25 @@
     <description>Recent content in Posts on 菜树的Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Aug 2021 18:53:16 +0800</lastBuildDate><atom:link href="http://upccaishu.top/post/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Oct 2022 11:39:52 +0800</lastBuildDate><atom:link href="http://upccaishu.top/post/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GANloss</title>
+      <link>http://upccaishu.top/post/paper/ganloss/</link>
+      <pubDate>Sun, 02 Oct 2022 11:39:52 +0800</pubDate>
+      
+      <guid>http://upccaishu.top/post/paper/ganloss/</guid>
+      <description>&lt;p&gt;GANloss&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原文链接：http://www.twistedwg.com/2018/10/05/GAN_loss_summary.html&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>Eccube4（插件开发三）</title>
-      <link>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</link>
+      <link>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</link>
       <pubDate>Wed, 11 Aug 2021 18:53:16 +0800</pubDate>
       
-      <guid>http://upccaishu.top/post/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</guid>
+      <guid>http://upccaishu.top/post/skills/eccube4%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%89/</guid>
       <description>&lt;p&gt;Eccube4（插件开发三）
 CSV文件DOM头引起的编码问题。
 CSV直接用Excel打开，乱码问题解决。&lt;/p&gt;</description>

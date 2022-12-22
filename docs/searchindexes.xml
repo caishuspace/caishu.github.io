@@ -2,6 +2,21 @@
 <search>
   
   <entry>
+    <title>最长回文子串</title>
+    <url>http://upccaishu.top/post/algorithm/leetcode-cn_5/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>力扣刷题</tag>
+      <tag>字符串</tag>
+    </tags>
+    <content type="html"><![CDATA[力扣刷题-最长回文子串
+问题描述 给你一个字符串 s，找到 s 中最长的回文子串。
+如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。
+示例1 1 2 3 输入：s = &#34;babad&#34; 输出：&#34;bab&#34; 解释：&#34;aba&#34; 同样是符合题意的答案。 示例1 1 2 输入：s = &#34;cbbd&#34; 输出：&#34;bb&#34; 提示： 1 &lt;= s.length &lt;= 1000 s 仅由数字和英文字母组成 代码 由于回文串是对称的，所以我们可以枚举所有的中点，再向两侧扩散，时间复杂度为O（n^2）。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 # @lc code=start class Solution: def longestPalindrome(self, s: str) -&gt; str: # @lc code=end len1 = len(s) maxlen= 0 maxstr = &#34;&#34; for i in range(0,len1): left = i - 1 right = i + 1 while left&gt;0 and right&lt;len1 and s[left]==s[right]: left-=1 right+=1 if maxlen &lt; (right-left-1): maxlen = (right-left-1) maxstr = s[left:right] left = i right= i+1 while left&gt;0 and right&lt;len1 and s[left]==s[right]: left-=1 right+=1 if maxlen &lt; (right-left-1): maxlen = (right-left-1) maxstr = s[left:right] return maxstr ]]></content>
+  </entry>
+  
+  <entry>
     <title>How_to_start_article_use_hugo</title>
     <url>http://upccaishu.top/post/pre/how_to_start_article_use_hugo/</url>
     <categories><category>其他</category>

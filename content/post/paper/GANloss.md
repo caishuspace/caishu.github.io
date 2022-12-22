@@ -56,3 +56,5 @@ GANloss
 - WGAN利用Earth Move代替JS散度去拉近生成和真实分布；WGAN-GP 是针对WGAN在满足Lipschitz限制条件时直接采用了weight clipping，这会导权重都集中在Clipping的附近，为了自适应满足Lipschitz限制， WGAN-GP提出了梯度惩罚;WGAN-LP也是将WGAN上加上梯度惩罚，我们放在一起说； 同样的DRAGAN同样对在GAN的基础上加上梯度惩罚，不过是在原始GAN的基础上； LSGAN中利用最小二乘的思想去设计损失函数，展开后可以通过参数控制凑出皮尔森卡方散度也是代替了原始GAN中的JS散度； 最后来说的就是利用Hinge Loss改进GAN的原始Loss，Hinge Loss首度使用在GAN下是Geometric GAN， Hinge Loss在支持向量机下应用很广，在GAN训练上依旧展示了很好的效果，目前最新的 SAGAN、BigGAN都采用这个损失函数。
 
 ![xKL0RH.png](https://s1.ax1x.com/2022/10/02/xKL0RH.png)
+
+【自我纠正一点，GAN Loss是一种损失函数的形式，具体的判别器损失，和生成器损失，具体可以使用MSE，MAE，交叉熵损失等来具体实现】

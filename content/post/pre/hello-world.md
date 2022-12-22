@@ -31,6 +31,11 @@ $ hugo server --buildDrafts
 
 更多信息：[内容格式](https://gohugo.io/content-management/formats/)
 
+### 创建文件
+```shell
+hugo new post/first.md
+```
+
 ### 启动服务以实时预览的方式
 
 ```shell

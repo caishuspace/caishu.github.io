@@ -2,6 +2,20 @@
 <search>
   
   <entry>
+    <title>977.有序数组的平方</title>
+    <url>http://upccaishu.top/post/algorithm/leetcode-cn_977/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>力扣刷题</tag>
+      <tag>数组</tag>
+    </tags>
+    <content type="html"><![CDATA[力扣刷题-有序数组的平方【使用双指针法，O(n)的时间复杂度解题】
+问题描述 给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。
+示例 1： 1 2 3 4 输入：nums = [-4,-1,0,3,10] 输出：[0,1,9,16,100] 解释：平方后，数组变为 [16,1,0,9,100] 排序后，数组变为 [0,1,9,16,100] 示例 2： 1 2 输入：nums = [-7,-3,2,3,11] 输出：[4,9,9,49,121] 提示 1 2 3 1 &lt;= nums.length &lt;= 104 -104 &lt;= nums[i] &lt;= 104 nums 已按 非递减顺序 排序 代码 解题思路：给定的数字是有序的，所以，最大的数字肯定在两端，新开一个数组，从大到小开始存储序列。 一开始的思路是找最接近零的，从小到大去挨个寻找，得先找到绝对值最小的数字，本身就是一个耗费时间的步骤，所以，反其道而行之，找最大的开始也是一样的，因为最大的平方数是两端，这点是确定的。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 class Solution: def sortedSquares(self, nums: List[int]) -&gt; List[int]: l = len(nums) li = [0]*l left = 0 rigt = l -1 l=l-1 while(l&gt;=0): if nums[left]**2 &gt;= nums[rigt]**2: li[l]=nums[left]**2 left+=1 else: li[l]=nums[rigt]**2 rigt-=1 l-=1 return li ]]></content>
+  </entry>
+  
+  <entry>
     <title>无重复字符的最长子串</title>
     <url>http://upccaishu.top/post/algorithm/leetcode-cn_3/</url>
     <categories><category>算法刷题</category>

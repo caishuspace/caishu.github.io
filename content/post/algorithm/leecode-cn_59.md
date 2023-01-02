@@ -43,7 +43,7 @@ tags:
 #weight: 1
 ---
 
-力扣刷题-螺旋矩阵
+力扣刷题-螺旋矩阵【模拟】
 
 <!--more-->
 
@@ -71,7 +71,7 @@ tags:
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         ans = [[0 for _ in range(n)] for _ in range(n)]
-        # ans = [[0]*n]*n
+        # ans = [[0]*n]*n   使用这个初始化会有问题，后面针对原因再做深入探讨
         top = 0
         left = 0
         right = n-1
@@ -101,4 +101,5 @@ class Solution:
             ans[n//2][n//2]=ant
         return ans
 ```
-
+###### 错误记录
+二维数组在初始化时会，如代码中注释的那样，会有问题，输入是`3`时，输出为：`[[8,9,5],[8,9,5],[8,9,5]]`,代码会有问题，别的也会报错，我猜测可能跟此种方式初始化的内存分配策略有关系。具体原因稍后再做探讨。

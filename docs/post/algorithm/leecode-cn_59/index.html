@@ -118,7 +118,7 @@
     </li>
     <li class="menu-item menu-item-archives">
       <a href="/archives/" class="hvr-icon-pulse " rel="section"><i class="fa fa-archive hvr-icon"></i>归档
-        <span class="badge">35</span>
+        <span class="badge">36</span>
       </a>
     </li>
     <li class="menu-item menu-item-commonweal">
@@ -187,7 +187,7 @@
   <nav class="site-state">
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -199,7 +199,7 @@
     </div>
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -315,7 +315,7 @@
   <span class="post-meta-item-icon">
     <i class="far fa-file-word"></i>
   </span>
-  <span class="post-meta-item-text">字数：</span><span>250</span>
+  <span class="post-meta-item-text">字数：</span><span>393</span>
 </span>
     
 <span class="post-meta-item" title="阅读">
@@ -344,7 +344,7 @@
     </header>
     <div class="post-body" itemprop="articleBody">
       
-  <p>力扣刷题-螺旋矩阵</p>
+  <p>力扣刷题-螺旋矩阵【模拟】</p>
 <h4 id="题目描述">题目描述</h4>
 <p>给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。</p>
 <ul>
@@ -424,7 +424,7 @@
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generateMatrix</span>(self, n: int) <span style="color:#f92672">-&gt;</span> List[List[int]]:
 </span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)] <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(n)]
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># ans = [[0]*n]*n</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># ans = [[0]*n]*n   使用这个初始化会有问题，后面针对原因再做深入探讨</span>
 </span></span><span style="display:flex;"><span>        top <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>        left <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>        right <span style="color:#f92672">=</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
@@ -455,7 +455,8 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><h6 id="错误记录">错误记录</h6>
+<p>二维数组在初始化时会，如代码中注释的那样，会有问题，输入是<code>3</code>时，输出为：<code>[[8,9,5],[8,9,5],[8,9,5]]</code>,代码会有问题，别的也会报错，我猜测可能跟此种方式初始化的内存分配策略有关系。具体原因稍后再做探讨。</p>
 
     </div>
     <footer class="post-footer">
@@ -500,6 +501,9 @@
 
 <div class="post-nav">
   <div class="post-nav-next post-nav-item">
+    <a href="/post/algorithm/leecode-cn_206/" rel="next" title="反转链表">
+      <i class="fa fa-chevron-left"></i> 反转链表
+    </a>
   </div>
   <div class="post-nav-prev post-nav-item">
     <a href="/post/algorithm/leetcode-cn_209/" rel="prev" title="长度最小的子数组">

@@ -2,6 +2,35 @@
 <search>
   
   <entry>
+    <title>19.删除链表的倒数第N个节点 </title>
+    <url>http://upccaishu.top/post/algorithm/leecode-cn_19/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>力扣刷题</tag>
+      <tag>链表</tag>
+    </tags>
+    <content type="html"><![CDATA[删除链表的倒数第N个节点-使用双节点解题
+题目描述 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+示例1 ： 输入：head = [1,2,3,4,5], n = 2输出：[1,2,3,5] 示例2： 输入：head = [1], n = 1输出：[] 示例3： 输入：head = [1,2], n = 1输出：[1] 提示： 链表中结点的数目为 sz1 &lt;= sz &lt;= 300 &lt;= Node.val &lt;= 1001 &lt;= n &lt;= sz 代码 普通思路代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]: h1 = ListNode(next=head) cur = h1.next cnt = 0 tail = None while cur!= None: cur = cur.next cnt +=1 k = cnt - n tmp = h1 for i in range(0,k): tmp = tmp.next if tmp.next != None: tmp.next = tmp.next.next return h1.next 进阶【使用一遍遍历解决，双指针方法】 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]: h1 = ListNode(next=head) q = h1 s = h1 hh = h1.next for i in range(0,n): q=q.next while q.next != None : s = s.next q = q.next s.next = s.next.next return h1.next ]]></content>
+  </entry>
+  
+  <entry>
+    <title>24. 两两交换链表中的节点 Cn_24</title>
+    <url>http://upccaishu.top/post/algorithm/leecode-cn_24/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>力扣刷题</tag>
+      <tag>链表</tag>
+    </tags>
+    <content type="html"><![CDATA[ 两两交换链表中的节点 其实和交换两相邻的数字方法无二，只不过要多记录两个节点 以及上下节点的位置关系。【画个图会方便捋清楚】 问题描述 给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
+示例 1： 1 2 输入：head = [1,2,3,4] 输出：[2,1,4,3] 示例 2 ： 1 2 输入：head = [] 输出：[] -示例 3：
+1 2 输入：head = [1] 输出：[1] 提示 链表中节点的数目在范围 [0, 100] 内 0 &lt;= Node.val &lt;= 100
+代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def swapPairs(self, head: Optional[ListNode]) -&gt; Optional[ListNode]: h1 = ListNode(next=head) h = h1 while h.next !=None and h.next.next!=None: p = h.next // 记录临时节点 q = h.next.next.next // 记录临时节点 h.next = h.next.next h.next.next = p h.next.next.next= q h = h.next.next return h1.next ]]></content>
+  </entry>
+  
+  <entry>
     <title>反转链表</title>
     <url>http://upccaishu.top/post/algorithm/leecode-cn_206/</url>
     <categories><category>算法刷题</category>

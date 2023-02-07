@@ -2,6 +2,21 @@
 <search>
   
   <entry>
+    <title>四数相加 II</title>
+    <url>http://upccaishu.top/post/algorithm/leecode-cn_454/</url>
+    <categories><category>算法刷题</category>
+    </categories>
+    <tags>
+      <tag>力扣刷题</tag>
+      <tag>哈希表</tag>
+    </tags>
+    <content type="html"><![CDATA[ 四数相加 II，利用哈希表解题 问题描述 给你四个整数数组 nums1、nums2、nums3 和 nums4 ，数组长度都是 n ，请你计算有多少个元组 (i, j, k, l) 能满足：
+0 &lt;= i, j, k, l &lt; n nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0
+用例描述：
+示例1：输入：nums1 = [1,2], nums2 = [-2,-1], nums3 = [-1,2], nums4 = [0,2]输出：2解释：两个元组如下：1. (0, 0, 0, 1) -&gt; nums1[0] + nums2[0] + nums3[0] + nums4[1] = 1 + (-2) + (-1) + 2 = 02. (1, 1, 0, 0) -&gt; nums1[1] + nums2[1] + nums3[0] + nums4[0] = 2 + (-1) + (-1) + 0 = 0示例2 ：输入：nums1 = [0], nums2 = [0], nums3 = [0], nums4 = [0]输出：1提示：n == nums1.lengthn == nums2.lengthn == nums3.lengthn == nums4.length1 &lt;= n &lt;= 200-228 &lt;= nums1[i], nums2[i], nums3[i], nums4[i] &lt;= 228 代码 首先定义 一个字典【哈希表】，key放a和b两数之和，value 放a和b两数之和出现的次数。 遍历nums1和nums2数组，统计两个数组元素之和，和出现的次数，放到map中。 定义int变量count，用来统计 a+b+c+d = 0 出现的次数。 在遍历nums3和nums4数组,求和，找到如果 0-(c+d) 在map中出现过的话，就用count把map中key对应的value也就是出现次数统计出来。 最后返回统计值 count 就可以了 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 class Solution: def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -&gt; int: dic = {} for i in nums1: for j in nums2: sum = i + j if sum in dic.keys(): dic[sum]+=1 else: dic[sum] = 1 ans = 0 for i in nums3: for j in nums4: sum1 = -(i+j) if sum1 in dic.keys(): ans+=dic[sum1] return ans ]]></content>
+  </entry>
+  
+  <entry>
     <title>142. 环形链表 II</title>
     <url>http://upccaishu.top/post/algorithm/leecode-cn_142/</url>
     <categories><category>算法刷题</category>
@@ -45,8 +60,8 @@ python代码
       <tag>链表</tag>
     </tags>
     <content type="html"><![CDATA[删除链表的倒数第N个节点-使用双节点解题
-题目描述 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
-示例1 ： 输入：head = [1,2,3,4,5], n = 2输出：[1,2,3,5] 示例2： 输入：head = [1], n = 1输出：[] 示例3： 输入：head = [1,2], n = 1输出：[1] 提示： 链表中结点的数目为 sz1 &lt;= sz &lt;= 300 &lt;= Node.val &lt;= 1001 &lt;= n &lt;= sz 代码 普通思路代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]: h1 = ListNode(next=head) cur = h1.next cnt = 0 tail = None while cur!= None: cur = cur.next cnt +=1 k = cnt - n tmp = h1 for i in range(0,k): tmp = tmp.next if tmp.next != None: tmp.next = tmp.next.next return h1.next 进阶【使用一遍遍历解决，双指针方法】 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]: h1 = ListNode(next=head) q = h1 s = h1 hh = h1.next for i in range(0,n): q=q.next while q.next != None : s = s.next q = q.next s.next = s.next.next return h1.next ]]></content>
+题目描述 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。 - 示例1 ：
+输入：head = [1,2,3,4,5], n = 2输出：[1,2,3,5] 示例2： 输入：head = [1], n = 1输出：[] 示例3： 输入：head = [1,2], n = 1输出：[1] 提示： 链表中结点的数目为 sz1 &lt;= sz &lt;= 300 &lt;= Node.val &lt;= 1001 &lt;= n &lt;= sz 代码 普通思路代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]: h1 = ListNode(next=head) cur = h1.next cnt = 0 tail = None while cur!= None: cur = cur.next cnt +=1 k = cnt - n tmp = h1 for i in range(0,k): tmp = tmp.next if tmp.next != None: tmp.next = tmp.next.next return h1.next 进阶【使用一遍遍历解决，双指针方法】 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 # @lc code=start # Definition for singly-linked list. # class ListNode: # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution: def removeNthFromEnd(self, head: Optional[ListNode], n: int) -&gt; Optional[ListNode]: h1 = ListNode(next=head) q = h1 s = h1 hh = h1.next for i in range(0,n): q=q.next while q.next != None : s = s.next q = q.next s.next = s.next.next return h1.next ]]></content>
   </entry>
   
   <entry>

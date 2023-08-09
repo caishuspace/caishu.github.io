@@ -3,22 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://upccaishu.top/categories/</loc>
-    <lastmod>2023-02-07T21:07:18+08:00</lastmod>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://upccaishu.top/post/</loc>
-    <lastmod>2023-02-07T21:07:18+08:00</lastmod>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://upccaishu.top/tags/</loc>
-    <lastmod>2023-02-07T21:07:18+08:00</lastmod>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://upccaishu.top/</loc>
-    <lastmod>2023-02-07T21:07:18+08:00</lastmod>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://upccaishu.top/tags/%E9%9D%A2%E8%AF%95/</loc>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://upccaishu.top/categories/%E5%85%B6%E4%BB%96/</loc>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://upccaishu.top/tags/%E5%AD%97%E8%8A%82/</loc>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://upccaishu.top/post/others/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%951/</loc>
+    <lastmod>2023-08-09T15:48:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -118,11 +138,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://upccaishu.top/tags/%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C/</loc>
-    <lastmod>2022-12-22T19:29:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://upccaishu.top/categories/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2022-12-22T19:29:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -2,6 +2,49 @@
 <search>
   
   <entry>
+    <title>好未来SRE面试</title>
+    <url>http://upccaishu.top/post/others/%E5%A5%BD%E6%9C%AA%E6%9D%A5sre%E9%9D%A2%E8%AF%95/</url>
+    <categories><category></category>
+    </categories>
+    <tags>
+      <tag></tag>
+      <tag></tag>
+    </tags>
+    <content type="html"><![CDATA[好未来SRE面试【一面挂】
+9.19收到感谢信 自我介绍
+情景题【淘宝双十一，有哪些方法，保证正常运行】
+自己答了大概从前端的和后端的方法来做一定的保证。【估计没答到点子上】
+自己的项目
+有没有用过Redis
+负载均衡
+知道K8S吗【估计是运维必考，这个不会】
+CDN了解吗？是做什么的？
+大概说了是做内容分发的。
+DNS？输入一个网页，DNS的工作流程？寻址过程和传统的递归有什么区别？
+递归过程的区别没答上来
+TCP
+排序算法有哪些？说一说。
+]]></content>
+  </entry>
+  
+  <entry>
+    <title>美团面试（机器学习）</title>
+    <url>http://upccaishu.top/post/others/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%951/</url>
+    <categories><category>其他</category>
+    </categories>
+    <tags>
+      <tag>面试</tag>
+      <tag>美团</tag>
+    </tags>
+    <content type="html"><![CDATA[美团面试岗位（机器学习）
+机器学习一面（是个凉经） 自我介绍 项目（论文） 回答的有点乱，得好好梳理一下，怎么给别人描述清楚。
+针对论文展开提问 用到了傅里叶变换，怎么用的？图像怎么输入的傅里叶变换？【面试官说，图像是以什么样子的函数形式输入的网络？这个有点懵被问的】 对论文的题目，进行了提问？【回答的有点绕】
+GAN的一个过程？ VAE是什么？和GAN的区别？里面的变分自编码器，变分指得是什么？ GAN网络在图像上应用的优缺点？ 傅里叶变换在你了解的领域还有很多人用来在做相关的东西吗？　说了一下在去雨方面的东西，问了一句何凯明做的这个，我实在没想起来何凯明用过频域去雨吗?我觉得可能说的是MAE那篇。
+针对开发EC-cube开发问了些业务场景的题目 手撕算法【求解$\sqrt{2}$+$\sqrt{3}】，精度是10e-10 题目很简单，但是当时想多了，第一次面算法，按照开发的思路走了，又是精度，又是啥的；其实很简单，二分法，或者梯度下降法都可以解决；
+]]></content>
+  </entry>
+  
+  <entry>
     <title>字节面试1</title>
     <url>http://upccaishu.top/post/others/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%951/</url>
     <categories><category>其他</category>
